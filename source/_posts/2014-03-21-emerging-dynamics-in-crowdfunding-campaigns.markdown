@@ -3,7 +3,7 @@ layout: post
 title: "Emerging Dynamics in Crowdfunding Campaigns"
 date: 2014-03-21 00:15:38 -0600
 comments: true
-categories:  crowdfunding, research
+categories:  crowdfunding research
 ---
 
 {% img center /images/sbp14/money.jpg %}
@@ -12,7 +12,7 @@ Recent research has shown that, in addition to the quality and representations o
 
 <!--more-->
 
-{% imagec center # /images/sbp14/result1.png 1000 1000 "Figure 1: Prediction accuracies over time by using the values of money inflows and the selected significant time before cur- rent time" %}
+{% img center # /images/sbp14/result1.png 1000 1000 "Figure 1: Prediction accuracies over time by using the values of money inflows and the selected significant time before cur- rent time" %}
 
 The results based on the  the values of money inflows are shown in Figure 1:
 
@@ -20,7 +20,7 @@ The results based on the  the values of money inflows are shown in Figure 1:
 * With only the first 15% of the money inflows, out predictor can achieve 84% accuracy.
 * The most “active” periods could be around the first 10% as well as between the 40-60%.
 
-{% imagec center # /images/sbp14/result2.png 1000 1000 "Figure 2: Prediction accuracies over time by using the derivative of money inflows and the selected significant time before current time" %}
+{% img center # /images/sbp14/result2.png 1000 1000 "Figure 2: Prediction accuracies over time by using the derivative of money inflows and the selected significant time before current time" %}
 
 The results based on the the derivative of money inflows are shown in Figure 2:
 
