@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How a Majority Vote Reward Scheme Can Improve Human Computation in a Spatial Location Identification Task"
-date: 2014-01-15 18:25:12 -0600
+date: 2014-01-15 18:25:12 +0800
 comments: true
 categories: research
 ---

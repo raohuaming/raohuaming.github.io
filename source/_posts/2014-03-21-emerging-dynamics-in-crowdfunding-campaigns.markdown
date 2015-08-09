@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Emerging Dynamics in Crowdfunding Campaigns"
-date: 2014-03-21 00:15:38 -0600
+date: 2014-03-21 00:15:38 +0800
 comments: true
 categories:  crowdfunding research
 ---

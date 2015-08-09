@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Blog online - finally"
-date: 2014-01-14 18:49:59 -0600
+date: 2014-01-14 18:49:59 +0800
 comments: true
 categories: 
 ---

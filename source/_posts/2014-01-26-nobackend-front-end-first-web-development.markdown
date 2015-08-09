@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "无后端（nobackend）：前端优先的Web开发【译】"
-date: 2014-01-26 09:49:18 -0600
+date: 2014-01-26 09:49:18 +0800
 comments: true
 categories: translation, front-end
 ---

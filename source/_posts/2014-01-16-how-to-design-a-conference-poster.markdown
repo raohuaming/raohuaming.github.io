@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "how to design a conference poster"
-date: 2014-01-16 00:15:05 -0600
+date: 2014-01-16 00:15:05 +0800
 comments: true
 categories: research
 published: false

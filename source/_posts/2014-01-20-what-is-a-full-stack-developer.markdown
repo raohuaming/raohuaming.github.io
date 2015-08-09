@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "什么是全栈工程师【译】"
-date: 2014-01-20 10:17:36 -0600
+date: 2014-01-20 10:17:36 +0800
 comments: true
 categories: translation, develop
 ---
