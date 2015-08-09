@@ -27,4 +27,4 @@ novel technologies and of course my life.
 At the end, may all my dear friends and myself have a very happy year!
 Get on fire, 2014!
 
-{% img /images/yellow_stone.JPG 'Yellow Stone Trip' %}
+{% img /images/yellow_stone.jpg 'Yellow Stone Trip' %}
