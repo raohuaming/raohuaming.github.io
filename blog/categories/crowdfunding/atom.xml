@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: crowdfunding | Huaming Rao's Blog]]></title>
+  <link href="http://raohuaming.github.io/blog/categories/crowdfunding/atom.xml" rel="self"/>
+  <link href="http://raohuaming.github.io/"/>
+  <updated>2015-08-09T22:52:53+08:00</updated>
+  <id>http://raohuaming.github.io/</id>
+  <author>
+    <name><![CDATA[Huaming Rao]]></name>
+    <email><![CDATA[altman262008@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Emerging Dynamics in Crowdfunding Campaigns]]></title>
+    <link href="http://raohuaming.github.io/blog/2014/03/21/emerging-dynamics-in-crowdfunding-campaigns/"/>
+    <updated>2014-03-21T14:15:38+08:00</updated>
+    <id>http://raohuaming.github.io/blog/2014/03/21/emerging-dynamics-in-crowdfunding-campaigns</id>
+    <content type="html"><![CDATA[<p><img class="center" src="/images/sbp14/money.jpg"></p>
+
+<p>Recent research has shown that, in addition to the quality and representations of project ideas, dynamics of investment during a crowdfunding campaign also play an important role in determining its success.  To further understand the role of investment dynamics, we did an exploratory analysis by applying a decision tree model to train predictors over the time series of money pledges to campaigns in Kickstarter to investigate the extent to which simple inflows and first-order derivatives can predict the eventual success of campaigns.</p>
+
+<!--more-->
+
+
+<p><img class="center #" src="/images/sbp14/result1.png" width="1000" height="1000" title="&ldquo;Figure 1: Prediction accuracies over time by using the values of money inflows and the selected significant time before cur- rent time&rdquo;" ></p>
+
+<p>The results based on the  the values of money inflows are shown in Figure 1:</p>
+
+<ul>
+<li>As expected, the performance of the predictors steadily improves.</li>
+<li>With only the first 15% of the money inflows, out predictor can achieve 84% accuracy.</li>
+<li>The most “active” periods could be around the first 10% as well as between the 40-60%.</li>
+</ul>
+
+
+<p><img class="center #" src="/images/sbp14/result2.png" width="1000" height="1000" title="&ldquo;Figure 2: Prediction accuracies over time by using the derivative of money inflows and the selected significant time before current time&rdquo;" ></p>
+
+<p>The results based on the the derivative of money inflows are shown in Figure 2:</p>
+
+<ul>
+<li>The performance of the predictors does not increase much until the very last stage.</li>
+<li>The most important period also does not change until the end, jumping from 5% to 100%.</li>
+</ul>
+
+
+<p>So according to the above results, we reach the conclusion:</p>
+
+<ul>
+<li>The periods around 10% and 40%-60% during a campaign had a stronger impact.</li>
+<li>“Seed money” (init 15% money inflow) may probably determine the final result of a campaign.</li>
+<li>Don’t give up and you can still make it at the very end of the campaign.</li>
+</ul>
+
+
+<p>For more, please see our <a href="http://link.springer.com/chapter/10.1007/978-3-319-05579-4_41">full paper</a>.</p>
+
+<p>Author List:</p>
+
+<ul>
+<li><a href="http://web.engr.illinois.edu/~huamingr/"> Huaming Rao </a>, Huaming Rao, Nanjing University of Science &amp; Technology and University of Illinois at Urbana-Champaign.</li>
+<li><a href="http://web.engr.illinois.edu/~xu26/"> Anbang Xu </a>, University of Illinois at Urbana-Champaign.</li>
+<li><a href="http://xiao-yang.me/"> Xiao Yang</a>,  Tsinghua University.</li>
+<li><a href="http://www.cs.illinois.edu/homes/wfu/"> Wai-Tat Fu </a>, University of Illinois at Urbana-Champaign.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: translation, | Huaming Rao's Blog]]></title>
+  <link href="http://raohuaming.github.io/blog/categories/translation/atom.xml" rel="self"/>
+  <link href="http://raohuaming.github.io/"/>
+  <updated>2015-08-09T22:52:53+08:00</updated>
+  <id>http://raohuaming.github.io/</id>
+  <author>
+    <name><![CDATA[Huaming Rao]]></name>
+    <email><![CDATA[altman262008@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[无后端（nobackend）：前端优先的Web开发【译】]]></title>
+    <link href="http://raohuaming.github.io/blog/2014/01/26/nobackend-front-end-first-web-development/"/>
+    <updated>2014-01-26T23:49:18+08:00</updated>
+    <id>http://raohuaming.github.io/blog/2014/01/26/nobackend-front-end-first-web-development</id>
+    <content type="html"><![CDATA[<p>每个应用都由两样东西构成：该应用独有的功能和所有应用共有的功能，比方说用户注册、登录、忘记密码等。而从用户的角度出发，那些独有的功能归结起来就是用户界面以及系统的行为模式。而在视觉表象之后的功能，用户并不关心，他们只期望系统能按预期运行就可以了。</p>
+
+<p>前端和后端有各自的侧重点，因此往往也需要不同的技能，由不同的开发人员来负责完成。无后端（<a href="http://nobackend.org/2013/05/welcome-to-noBackend.html">nobackend</a>）的开发原则能够进一步解偶这些不同的侧重点，这样两边的开发人员可以更加专注于各自真正热衷的工作。</p>
+
+<p><img src="/images/nobackend-logo.png" title="noBackend" ></p>
+
+<h3>一个简单的例子</h3>
+
+<p>后端经常需要提供API给前端，以下是一个简单的例子，使用API进行用户登录。</p>
+
+<pre><code class="javascript">POST /session
+{ "email":"joe@example.com", "password": "secret"  }
+</code></pre>
+
+<p>前端的开发人员需要负责发送上述请求并对结果进行响应，还要考虑到一些极端的情况，如失去连接或不可预知的服务器错误等。与此相反的是，无后端的设计原则则建议由前端开发人员来定义API，用前端的代码来描述后端的功能，举例如下：
+<code>
+signIn( 'joe@example.com', 'secret'  )
+.then( showDashboard  )
+.fail( showError  )
+</code></p>
+
+<p>我们称此为梦幻代码（<a href="http://nobackend.org/dreamcode.html">Dreamcode</a>），因为这些代码经常是在真正的代码可运行以前就已经写好了。初一看，这样并没有多大意义，只不过是改成了发送AJAX请求并调用相应的回调函数而已，但是以这样的方式定义的API在许多方面都会更加强大：</p>
+
+<!--more-->
+
+
+<h4>1. 灵活</h4>
+
+<p>用户如果想要登录，那么他们也就只关心登录这个行为本身，而绝不会去关心：</p>
+
+<ul>
+<li>请求是否是送到应用的服务器还是一个中央的验证服务器</li>
+<li>是一个HTTP的POST请求还是PUT请求。</li>
+<li>是否是通过websocket发送的</li>
+<li>验证使用的cookies还是使用session ID或者是自定义的header</li>
+<li>应用是否会在前一个请求时后再次发送请求</li>
+</ul>
+
+
+<p>signIn这个方法的实现可以进行调整以反映后端的变化，但是就这个API本身，前端开发人员并不需要去修改了。</p>
+
+<h4>2. 简洁</h4>
+
+<p>从前端开发人员的角度来看，实现signIn方法要简单的多，代码量也可以少很多；而从后端开发人员的角度来看，尽管刚开始要投入更多的精力，但是和RESTful API相比，前面的API要更容易定义，文档化和测试。</p>
+
+<h4>3. 前端驱动</h4>
+
+<p>前端开发人员可以引领构建应用的整个设计流程。以Dreadcode的方式来描述后端的功能，可以让开发人员更加专注于用户体验，从而避免了由于讨论具体的实现细节而有所分心，也不会由于要等待后端API的实现而拖延项目的进度。</p>
+
+<h3>一个更加复杂的例子</h3>
+
+<p>当你研究一个更复杂的例子以后，前优势会显得更加明显。假设你想要发送一封邮件，要附上当前页的PDF。</p>
+
+<pre><code>sendEmail({
+  subject: "Hello, World!",
+  text: "This mail has been sent from the frontend",
+  html: "This mail has been sent from the frontend",
+  to: "joe@example.com",
+  attachments: [ 
+    convert( document.body  ).to("report.pdf"),
+  ]
+})
+</code></pre>
+
+<p>要让这段代码跑起来，并且要让它不受垃圾邮件的影响，可能会相当困难。但是至少可以马上写一些quick和dirty的实现，然后再一点一点地改进，而在这个过程中无需改变API。这里的<strong>关键点</strong>在于，前端开发人员可以把这看成是一个已有的功能，从而可以专注于用户体验，而不需要去关心后台开发人员到目前为止究竟有多么复杂地实现了这个功能。</p>
+
+<h3>现有的一些nobackend的解决方案</h3>
+
+<p>一个nobackend的解决方案应该提供一个前端的API来处理一些通用的后端任务，至少应该包括用户验证、数据持久化和同步等。以下是一些可以关注的方案：</p>
+
+<ul>
+<li><a href="http://backendless.com/">Backendless</a></li>
+<li><a href="http://deployd.com/">deployd</a></li>
+<li><a href="https://www.firebase.com/">Firebase</a></li>
+<li><a href="http://hood.ie/">Hoodie</a></li>
+<li><a href="http://www.kinvey.com/">Kinvey</a></li>
+<li><a href="https://parse.com/">Parse</a></li>
+<li><a href="http://remotestorage.io/">remoteStorage</a></li>
+<li><a href="http://sockethub.org/">Sockethub</a></li>
+</ul>
+
+
+<p>也可以参考下：<a href="http://unhosted.org/">unhosted</a>。以上这个列表中，绝大多数都是托管服务，对于想要用自己的服务器来托管的同学，可以选择开源的deployd。</p>
+
+<p>原文：<a href="http://nobackend.org/2013/05/welcome-to-noBackend.html">http://nobackend.org/2013/05/welcome-to-noBackend.html</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[什么是全栈工程师【译】]]></title>
+    <link href="http://raohuaming.github.io/blog/2014/01/21/what-is-a-full-stack-developer/"/>
+    <updated>2014-01-21T00:17:36+08:00</updated>
+    <id>http://raohuaming.github.io/blog/2014/01/21/what-is-a-full-stack-developer</id>
+    <content type="html"><![CDATA[<p><img class="right" src="/images/stack.jpg"></p>
+
+<p>最近“知乎”上在热烈讨论一则传闻，说Facebook在招聘所谓的“全栈工程师”，要求应征者对开发堆栈的每个方面都有所掌握。那究竟何为
+“全栈工程师”呢？从字面上来理解，全栈工程师必须熟悉开发堆栈的每一个层次，或者至少熟悉绝大多数并且对所有的软件技术有天生的热情和兴趣。</p>
+
+<p>对于这样的开发者，他们非常擅长使用掌握的技术让自己的生活变得轻松，这也正是为什么Facebook会希望雇佣他们，他们用自己的脑子与热情编码，
+好的产品也自然能在最短的时间呈现。那么，具体而言，一个合格的“全栈工程师”要具备哪些素质呢？</p>
+
+<!--more-->
+
+
+<h3>开发堆栈剖析</h3>
+
+<ol>
+<li><p><em>服务器，网络以及宿主环境</em></p>
+
+<ul>
+<li>需要理解哪些模块可能失效以及为什么，而不能理所当然地认为，只要不断增加资源就能解决所有问题。</li>
+<li>知道如何运用操作系统、云存储、网络资源，并能理解数据冗余以及可用性是必需的。</li>
+<li>了解应用的规模是如何对硬件造成限制的。</li>
+<li>还有多线程和竞态条件，这些概念在开发机上往往不会遇到，但是他们在现实的部署环境中却无处不在。</li>
+<li>全栈工程师还必须要能够与<a href="http://en.wikipedia.org/wiki/DevOps">DevOps</a>很好地协作。他们所设计的系统应该提供有用的错误消息和日
+志能力，这样DevOps就能够及时获得这些信息，并采取有价值的行动。</li>
+</ul>
+</li>
+<li><p><em>数据建模</em></p>
+
+<ul>
+<li>如果数据模型存在缺陷，那么就常常需要在业务逻辑和更高的层面上使用丑陋的代码来弥补那些数据模型没办法覆盖的死角。</li>
+<li>知道如何建立合理的范式关系模型，具备完善的外键、索引、视图、查询表等等。</li>
+<li>还要熟悉非关系型数据的存储，知道非关系型数据库在哪些方面超越关系型数据库。</li>
+</ul>
+</li>
+<li><p><em>业务逻辑</em></p>
+
+<ul>
+<li>这是系统应用价值的关键所在。</li>
+<li>掌握<a href="http://goo.gl/jteHPE">SOLID</a>设计能力（单一职责，开放且封闭，Liskov替代性，接口分离，依赖注入）。</li>
+<li>熟悉一些常用的框架。</li>
+</ul>
+</li>
+<li><p><em>API/Action/MVC</em></p>
+
+<ul>
+<li>这些关乎外部世界如何与业务逻辑及数据模型交互。</li>
+<li>会使用到大量的框架。</li>
+<li>有能力写出清晰、一致、使用简单的接口。</li>
+</ul>
+</li>
+<li><p><em>用户界面</em></p>
+
+<ul>
+<li>全栈工程师需要：a）懂得如何构建易读的布局；b）能意识到艺术家和图形设计师的作用。总之，实现一套好的视觉设计方案尤为关键。</li>
+<li>熟练掌握HTML5/CSS。</li>
+<li>从目前的趋势来看，JavaScript将会是明日之星，最近这一领域硕果累累（NodeJs, backbone, knockout, Angular（自己的加的，
+原文没有））。因此，掌握JavaScript必不可少。</li>
+</ul>
+</li>
+<li><p><em>用户体验</em></p>
+
+<ul>
+<li>全栈工程师应该意识到：用户仅仅是希望一切运转良好。</li>
+<li>一个好的系统是不会让用户得腕管综合征或产生眼疲劳的。全栈工程师能审视全局，可以将一个需要8次点击+3个步骤的过程，简化为仅需要一次点击。</li>
+<li>知道如何向用户提示错误信息。如果出现故障，真诚道歉。有时一些无意的错误信息，会让用户感到莫名奇妙。</li>
+</ul>
+</li>
+<li><p><em>理解用户和市场需求</em></p>
+
+<ul>
+<li>这层关系到系统架构，但也绝不是一个不能碰的角色（有可能翻译有误，原文：but that is too much of a hands off role）。</li>
+<li>全栈工程师要领悟客户使用软件过程中会需要些什么以及整个市场需要些什么。</li>
+</ul>
+</li>
+</ol>
+
+
+<h3>其他方面</h3>
+
+<ol>
+<li>能写出高质量的单元测试，时至今日，甚至连JavaScript都能写出单元测试了。</li>
+<li>知道如何使用可重复的自动化工具来构建系统、测试、撰写文档以及按需部署。</li>
+<li>系统的安全意识非常重要，要知道，开发堆栈中的每一层都可能存在薄弱环节。</li>
+</ol>
+
+
+<h3>总结</h3>
+
+<p>将代码与某个特定的实现（无论是软件库，操作系统，硬件，等等）紧绑在一起并不是好的实践。全栈工程师虽然学术渊博，但不意味着他们能抄
+捷径，除非他们是在开发一个建完即扔的一次性原型。</p>
+
+<p>技术型的创业企业在初期为了满足灵活性，对全栈工程师的需求比较大，但是，随着企业的成熟，会需要越来越多的专业型人才。</p>
+
+<p>要成为一名全栈工程师，至少要使用过多种编程语言在各种领域的不同平台工作多年。全栈工程师除了像“高级工程师”那样要掌握多门编程语言，
+还必须具有更高的视野将所有的模块联系起来。值得注意的是，在以上列表中，仅有3——5项是与编码有关的。</p>
+
+<p>原文：<a href="http://www.laurencegellert.com/2012/08/what-is-a-full-stack-developer/">http://www.laurencegellert.com/2012/08/what-is-a-full-stack-developer/</a></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: front-end | Huaming Rao's Blog]]></title>
+  <link href="http://raohuaming.github.io/blog/categories/front-end/atom.xml" rel="self"/>
+  <link href="http://raohuaming.github.io/"/>
+  <updated>2015-08-09T22:52:53+08:00</updated>
+  <id>http://raohuaming.github.io/</id>
+  <author>
+    <name><![CDATA[Huaming Rao]]></name>
+    <email><![CDATA[altman262008@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[无后端（nobackend）：前端优先的Web开发【译】]]></title>
+    <link href="http://raohuaming.github.io/blog/2014/01/26/nobackend-front-end-first-web-development/"/>
+    <updated>2014-01-26T23:49:18+08:00</updated>
+    <id>http://raohuaming.github.io/blog/2014/01/26/nobackend-front-end-first-web-development</id>
+    <content type="html"><![CDATA[<p>每个应用都由两样东西构成：该应用独有的功能和所有应用共有的功能，比方说用户注册、登录、忘记密码等。而从用户的角度出发，那些独有的功能归结起来就是用户界面以及系统的行为模式。而在视觉表象之后的功能，用户并不关心，他们只期望系统能按预期运行就可以了。</p>
+
+<p>前端和后端有各自的侧重点，因此往往也需要不同的技能，由不同的开发人员来负责完成。无后端（<a href="http://nobackend.org/2013/05/welcome-to-noBackend.html">nobackend</a>）的开发原则能够进一步解偶这些不同的侧重点，这样两边的开发人员可以更加专注于各自真正热衷的工作。</p>
+
+<p><img src="/images/nobackend-logo.png" title="noBackend" ></p>
+
+<h3>一个简单的例子</h3>
+
+<p>后端经常需要提供API给前端，以下是一个简单的例子，使用API进行用户登录。</p>
+
+<pre><code class="javascript">POST /session
+{ "email":"joe@example.com", "password": "secret"  }
+</code></pre>
+
+<p>前端的开发人员需要负责发送上述请求并对结果进行响应，还要考虑到一些极端的情况，如失去连接或不可预知的服务器错误等。与此相反的是，无后端的设计原则则建议由前端开发人员来定义API，用前端的代码来描述后端的功能，举例如下：
+<code>
+signIn( 'joe@example.com', 'secret'  )
+.then( showDashboard  )
+.fail( showError  )
+</code></p>
+
+<p>我们称此为梦幻代码（<a href="http://nobackend.org/dreamcode.html">Dreamcode</a>），因为这些代码经常是在真正的代码可运行以前就已经写好了。初一看，这样并没有多大意义，只不过是改成了发送AJAX请求并调用相应的回调函数而已，但是以这样的方式定义的API在许多方面都会更加强大：</p>
+
+<!--more-->
+
+
+<h4>1. 灵活</h4>
+
+<p>用户如果想要登录，那么他们也就只关心登录这个行为本身，而绝不会去关心：</p>
+
+<ul>
+<li>请求是否是送到应用的服务器还是一个中央的验证服务器</li>
+<li>是一个HTTP的POST请求还是PUT请求。</li>
+<li>是否是通过websocket发送的</li>
+<li>验证使用的cookies还是使用session ID或者是自定义的header</li>
+<li>应用是否会在前一个请求时后再次发送请求</li>
+</ul>
+
+
+<p>signIn这个方法的实现可以进行调整以反映后端的变化，但是就这个API本身，前端开发人员并不需要去修改了。</p>
+
+<h4>2. 简洁</h4>
+
+<p>从前端开发人员的角度来看，实现signIn方法要简单的多，代码量也可以少很多；而从后端开发人员的角度来看，尽管刚开始要投入更多的精力，但是和RESTful API相比，前面的API要更容易定义，文档化和测试。</p>
+
+<h4>3. 前端驱动</h4>
+
+<p>前端开发人员可以引领构建应用的整个设计流程。以Dreadcode的方式来描述后端的功能，可以让开发人员更加专注于用户体验，从而避免了由于讨论具体的实现细节而有所分心，也不会由于要等待后端API的实现而拖延项目的进度。</p>
+
+<h3>一个更加复杂的例子</h3>
+
+<p>当你研究一个更复杂的例子以后，前优势会显得更加明显。假设你想要发送一封邮件，要附上当前页的PDF。</p>
+
+<pre><code>sendEmail({
+  subject: "Hello, World!",
+  text: "This mail has been sent from the frontend",
+  html: "This mail has been sent from the frontend",
+  to: "joe@example.com",
+  attachments: [ 
+    convert( document.body  ).to("report.pdf"),
+  ]
+})
+</code></pre>
+
+<p>要让这段代码跑起来，并且要让它不受垃圾邮件的影响，可能会相当困难。但是至少可以马上写一些quick和dirty的实现，然后再一点一点地改进，而在这个过程中无需改变API。这里的<strong>关键点</strong>在于，前端开发人员可以把这看成是一个已有的功能，从而可以专注于用户体验，而不需要去关心后台开发人员到目前为止究竟有多么复杂地实现了这个功能。</p>
+
+<h3>现有的一些nobackend的解决方案</h3>
+
+<p>一个nobackend的解决方案应该提供一个前端的API来处理一些通用的后端任务，至少应该包括用户验证、数据持久化和同步等。以下是一些可以关注的方案：</p>
+
+<ul>
+<li><a href="http://backendless.com/">Backendless</a></li>
+<li><a href="http://deployd.com/">deployd</a></li>
+<li><a href="https://www.firebase.com/">Firebase</a></li>
+<li><a href="http://hood.ie/">Hoodie</a></li>
+<li><a href="http://www.kinvey.com/">Kinvey</a></li>
+<li><a href="https://parse.com/">Parse</a></li>
+<li><a href="http://remotestorage.io/">remoteStorage</a></li>
+<li><a href="http://sockethub.org/">Sockethub</a></li>
+</ul>
+
+
+<p>也可以参考下：<a href="http://unhosted.org/">unhosted</a>。以上这个列表中，绝大多数都是托管服务，对于想要用自己的服务器来托管的同学，可以选择开源的deployd。</p>
+
+<p>原文：<a href="http://nobackend.org/2013/05/welcome-to-noBackend.html">http://nobackend.org/2013/05/welcome-to-noBackend.html</a></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Huaming Rao's Blog]]></title>
+  <link href="http://raohuaming.github.io/atom.xml" rel="self"/>
+  <link href="http://raohuaming.github.io/"/>
+  <updated>2015-08-09T22:52:53+08:00</updated>
+  <id>http://raohuaming.github.io/</id>
+  <author>
+    <name><![CDATA[Huaming Rao]]></name>
+    <email><![CDATA[altman262008@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Emerging Dynamics in Crowdfunding Campaigns]]></title>
+    <link href="http://raohuaming.github.io/blog/2014/03/21/emerging-dynamics-in-crowdfunding-campaigns/"/>
+    <updated>2014-03-21T14:15:38+08:00</updated>
+    <id>http://raohuaming.github.io/blog/2014/03/21/emerging-dynamics-in-crowdfunding-campaigns</id>
+    <content type="html"><![CDATA[<p><img class="center" src="http://raohuaming.github.io/images/sbp14/money.jpg"></p>
+
+<p>Recent research has shown that, in addition to the quality and representations of project ideas, dynamics of investment during a crowdfunding campaign also play an important role in determining its success.  To further understand the role of investment dynamics, we did an exploratory analysis by applying a decision tree model to train predictors over the time series of money pledges to campaigns in Kickstarter to investigate the extent to which simple inflows and first-order derivatives can predict the eventual success of campaigns.</p>
+
+<!--more-->
+
+
+<p><img class="center #" src="http://raohuaming.github.io/images/sbp14/result1.png" width="1000" height="1000" title="&#34;Figure 1: Prediction accuracies over time by using the values of money inflows and the selected significant time before cur- rent time&#34;" alt="&#34;Figure 1: Prediction accuracies over time by using the values of money inflows and the selected significant time before cur- rent time&#34;"></p>
+
+<p>The results based on the  the values of money inflows are shown in Figure 1:</p>
+
+<ul>
+<li>As expected, the performance of the predictors steadily improves.</li>
+<li>With only the first 15% of the money inflows, out predictor can achieve 84% accuracy.</li>
+<li>The most “active” periods could be around the first 10% as well as between the 40-60%.</li>
+</ul>
+
+
+<p><img class="center #" src="http://raohuaming.github.io/images/sbp14/result2.png" width="1000" height="1000" title="&#34;Figure 2: Prediction accuracies over time by using the derivative of money inflows and the selected significant time before current time&#34;" alt="&#34;Figure 2: Prediction accuracies over time by using the derivative of money inflows and the selected significant time before current time&#34;"></p>
+
+<p>The results based on the the derivative of money inflows are shown in Figure 2:</p>
+
+<ul>
+<li>The performance of the predictors does not increase much until the very last stage.</li>
+<li>The most important period also does not change until the end, jumping from 5% to 100%.</li>
+</ul>
+
+
+<p>So according to the above results, we reach the conclusion:</p>
+
+<ul>
+<li>The periods around 10% and 40%-60% during a campaign had a stronger impact.</li>
+<li>“Seed money” (init 15% money inflow) may probably determine the final result of a campaign.</li>
+<li>Don’t give up and you can still make it at the very end of the campaign.</li>
+</ul>
+
+
+<p>For more, please see our <a href="http://link.springer.com/chapter/10.1007/978-3-319-05579-4_41">full paper</a>.</p>
+
+<p>Author List:</p>
+
+<ul>
+<li><a href="http://web.engr.illinois.edu/~huamingr/"> Huaming Rao </a>, Huaming Rao, Nanjing University of Science &amp; Technology and University of Illinois at Urbana-Champaign.</li>
+<li><a href="http://web.engr.illinois.edu/~xu26/"> Anbang Xu </a>, University of Illinois at Urbana-Champaign.</li>
+<li><a href="http://xiao-yang.me/"> Xiao Yang</a>,  Tsinghua University.</li>
+<li><a href="http://www.cs.illinois.edu/homes/wfu/"> Wai-Tat Fu </a>, University of Illinois at Urbana-Champaign.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[全Javascript的Web开发架构：MEAN和Yeoman【译】]]></title>
+    <link href="http://raohuaming.github.io/blog/2014/02/10/full-stack-javascript-with-mean-and-yeoman/"/>
+    <updated>2014-02-10T08:29:10+08:00</updated>
+    <id>http://raohuaming.github.io/blog/2014/02/10/full-stack-javascript-with-mean-and-yeoman</id>
+    <content type="html"><![CDATA[<h2>引言</h2>
+
+<p>最近在Angular社区的原型开发者间，一种全Javascript的开发架构MEAN正突然流行起来。其首字母分别代表的是：(M)ongoDB——noSQL的文档数据库，使用JSON风格来存储数据，甚至也是使用JS来进行sql查询；(E)xpress——基于Node的Web开发框架；(A)agular——JS的前端开发框架，提供了声明式的双向数据绑定；(N)ode——基于V8的运行时环境（JS语言开发），可以构建快速响应、可扩展的网络应用。</p>
+
+<p><img class="right" src="http://raohuaming.github.io/images/mean-stack.png"></p>
+
+<p>MEAN的支持者宣称，如果整个开发栈均能使用JS，必然会大大地提高效率，这一点毋庸置疑是一个很大的卖点。这样一来，开发人员（无论是前端还是后端）不仅能使用一致的数据模型，在其它方面也同样可以获得一致的编程体验。</p>
+
+<p>例如，拿Mongo来说，你可以使用类JSON格式（BSON，二进制的JSON）来存储数据，然后在Express/Node中调用JSON查询语句，再将结果以JSON格式传给前端的Angular显示，这样，也自然使调试程序容易了很多。</p>
+
+<!--more-->
+
+
+<p><strong>注意: 事实上，在MEAN架构中，前端的Angular并不是必须的，你可以将它替换成其他的前端框架，如Backbone、Ember或者Polymer。</strong></p>
+
+<h2>为何选择MongoDB？</h2>
+
+<p>如上所提，这个架构最重要的优势在于能使用单一语言，这也是其选择了Mongo的首要原因。 这里就不讨论noSQL的是与非了。一些人对MEAN架构的指责在于，MongoDB可以很好地胜任中小型的应用，但是对于大规模应用（百万级用户）来说可能就捉襟见肘。我想说的是，这完全取决于你如何使用它。</p>
+
+<p>SQL数据库本身是强类型的，因此可以在很大程度上保证某种层次的一致，从而确保许多类型的脏数据一开始就没办法进入数据库。而NoSQL则是弱类型的数据库，这使得它在数据验证方面力不从心，而只能交给开发人员来实现，基于这样的特性，它尤其适合存储那些不规范的数据，特别是在原型开发阶段，此时数据模型正在经历快速变化。</p>
+
+<p>SQL和noSQL间的技术差别，归根结底是要在性能和稳定性间作出平衡。有些情况下，对数据的事务处理一旦设定后就不会轻易变化，那么此时使用Mongo就非常合适；然而有时候也会涉及更为复杂的事务处理，会牵扯到许多独立的业务逻辑，由于Mongo并没有提供一个简单的数据模型来支持一定级别的原子操作，因此SQL在这个时候可以派上用场。</p>
+
+<p>但无论如何，不论你是否选择MEAN中的M，你最终都需要根据自身的需求选择出合适的工具来做正确的事情，</p>
+
+<h2>为何是Express?</h2>
+
+<p>可以简单地把Express看成是一个在Node平台下搭建Web应用的工具集。在Node的基础上，它提供了许多简洁的接口来创建请求节点、处理cookie等，此外还提供了许多功能来帮助你搭建自己的服务器。总的来说，Express在以下几个方面有优势：</p>
+
+<ul>
+<li>设置REST路由简单致极：</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="sr">/account/</span><span class="o">:</span><span class="nx">id</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">){</span> <span class="cm">/* req.params(&#39;id&#39;) is available */</span> <span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>支持Jade或Mustache等模板引擎</li>
+<li>自动HTTP头处理:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">){</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span><span class="nx">object</span><span class="o">:</span> <span class="s1">&#39;foo&#39;</span><span class="p">});</span> <span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>支持Connect中间件，可以插入额外请求或响应处理，如用户验证</li>
+<li>提供辅助函数解析POST请求</li>
+<li>防范XSS</li>
+<li>优雅的错误处理</li>
+</ul>
+
+
+<h2>如何快速上手MEAN</h2>
+
+<p>如果想要很快上手MEAN，那么<a href="http://mean.io/">mean.io</a>是一个很不错的选择。该项目旨在解决MEAN架构中一些常见的集成问题, 目前维护得很好，文档也很清楚，而且可以很方便地自行添加第三方库，还能和Yeoman配合使用（通过 <a href="https://github.com/jrcryer/generator-mean">generator-mean</a> by James Cryer）。</p>
+
+<p>在进一步阅读前，先假定我们同意以下观点：（a）Mongo至少非常适合于全Javascript堆栈的原型设计；（b） 承认即使像Angular般如日中天，终有一天也会被其他的一些JS框架给取代，只要它们能帮助我们快速方便地将这个架构快速搭建起来。</p>
+
+<p>接下来就要介绍<a href="http://yeoman.io/">Yeoman</a> 了，它由3个你所熟知的工具构成：</p>
+
+<ul>
+<li>Grunt：用于生成，预览和自动化测试你的项目，这要特别感谢由Yeoman和grin t-contrib团队创建的许多grunt tasks。</li>
+<li>Bower：前端的依赖管理工具，有了它你再也不需要手动下载和管理第三方JS库了。</li>
+<li>YO：快速生成一个新的应用，包括配置好你的Grunt任务以及你极有可能会用到的Bower依赖。</li>
+</ul>
+
+
+<p>笔者在一年以前，曾和其他一些人创建过一个叫<a href="https://plus.google.com/+AddyOsmani/posts/YDNbxVxi4er">ExpressStack</a>的项目，其想法很简单，就是要提供一些工具能够快速生成构建全JS的Web应用所需要的一切。但是，这个项目夭折了，尽管如此，许多类似的项目却如雨后春笋般涌现出来。</p>
+
+<p>下面对这些项目作些介绍：</p>
+
+<p><strong>注意: 你可能需要装好Yeomam(npm install -g yo)和以下一些生成器（npm install -g <generator-name>）。</strong></p>
+
+<h3><a href="https://github.com/DaftMonk/generator-angular-fullstack">generator-angular-fullstack</a></h3>
+
+<p>这是一个AngularJS的生成器，集成了Express,可选MongoDB。主要功能如下：</p>
+
+<ul>
+<li>支持客户端和服务端的Livereload。</li>
+<li>Express server集成了grunt tasks。</li>
+<li>内建了方便的部署流程。</li>
+<li>支持Jade。</li>
+</ul>
+
+
+<p>可参考: <a href="http://tylerhenkel.com/creating-apps-with-angular-and-node-using-yeoman/">http://tylerhenkel.com/creating-apps-with-angular-and-node-using-yeoman/</a></p>
+
+<h3><a href="https://github.com/wlepinski/generator-meanstack">generator-meanstack</a></h3>
+
+<p>另一个MEAN架构的生成器，集成了grunt-express，功能如下：</p>
+
+<ul>
+<li>在generator-angular的基础上，用express取代了Connect。</li>
+<li>支持客户端和服务端的Livereload。</li>
+<li>使用app_grunt.js文件来启动应用，而在app.js中定义路由。</li>
+<li>目录结构基本沿袭了generator-angular的风格，只作了少许的改动。</li>
+</ul>
+
+
+<p>可参考：<a href="https://github.com/Grievoushead/generator-express-angular">https://github.com/Grievoushead/generator-express-angular</a></p>
+
+<h3><a href="https://github.com/jackrabbitsgroup/generator-mean-seed">generator-mean-seed</a></h3>
+
+<p>集成了Mongo，Express，Angular，Yeoman，Karma和Protractor（作自动测试）。</p>
+
+<h3><a href="https://github.com/klei-dev/generator-klei">generator-klei</a></h3>
+
+<p>和其他的很类似，不过使用的是Mongoose和Stylus，其他的一些功能包括：</p>
+
+<ul>
+<li>其目录结构非常容易扩张（包含了一个TODO List的应用例子）</li>
+<li>一个配置完整的Gruntfile，集合了livereload, linting, concatenation, minification等.</li>
+<li>使用exctrl来自动挂载API。</li>
+<li>使用了grunt-injector，从而无需手动修改Html的layout文件，就可以自动装载新添加的js和css。</li>
+<li>使用Karma, Mocha和Chai来进行前端的单元测试。</li>
+</ul>
+
+
+<h3><a href="https://github.com/pilwon/ultimate-seed-generator">ultimate-seed-generator</a></h3>
+
+<p>该生成器非常全面，添加了许多第三方的库，包括Passport用于用户登录，Browserify加载js。</p>
+
+<ul>
+<li>集成了AngularUI, Barbeque（用于任务队列管理）和Bootstrap</li>
+<li>集成了Bower, Browserify，Express和Font Awesome</li>
+<li>集成了Grunt, Handlebars, jQuery, JSHint和Karma/Mocha</li>
+<li>支持LESS/LESSHat, Livereload和Lodash/Underscore</li>
+<li>集成了Modernizr, MongoDB/Mongoose和Passport</li>
+</ul>
+
+
+<h2>该如何做出选择?</h2>
+
+<p>看了这么多的生成器，自然要问，我该选择哪一个呢？事实上，以上列表是有顺序的，依据的是其与最新版的Yeoman的兼容性以及维护的活跃度。</p>
+
+<h2>全Javascript的架构是否适合于产品级的应用呢？</h2>
+
+<p>不得不承认，如果开发堆栈的每一层都能使用JavaScript将会是一件很棒的事情（至少对于原型开发来说是这样），然而千万要注意，不要为了追求这一目标，而把自己而束缚住了。尽管的确有越来越多的大规模应用都在采用类似的架构，如Walmart、LinkedIn，但并不意味着模仿他们就一定能成功。</p>
+
+<p>另一个需要注意的是，相对于其他的语言（如Ruby，Python或Java），在Node上搭建后端要困难得多。你可能要自己处理内存泄漏，避免在事件循环中进行耗时运算，还要非常小心异常处理，如果这些处理不当就很有可能会导致整个应用服务器崩溃，但是这些问题在其他平台上却已经处理得很好了。然而，这并不是说，Node不能运用在生产环境下，当然可以，但要格外用心。</p>
+
+<p>实话实说，想要“一揽子”为Web应用提供一个大而全的解决方案将非常困难，MEAN架构也肯定有其局限性。在前端与后端的设计模式、原则和风格中有大量的演化，如果你觉得PHP或Rails是更明智的选择，那就继续使用下去，否则的话，不妨试试MEAN，至少在当下值得一试。</p>
+
+<p>【原文：<a href="http://addyosmani.com/blog/full-stack-javascript-with-mean-and-yeoman/">http://addyosmani.com/blog/full-stack-javascript-with-mean-and-yeoman/</a> 】</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[无后端（nobackend）：前端优先的Web开发【译】]]></title>
+    <link href="http://raohuaming.github.io/blog/2014/01/26/nobackend-front-end-first-web-development/"/>
+    <updated>2014-01-26T23:49:18+08:00</updated>
+    <id>http://raohuaming.github.io/blog/2014/01/26/nobackend-front-end-first-web-development</id>
+    <content type="html"><![CDATA[<p>每个应用都由两样东西构成：该应用独有的功能和所有应用共有的功能，比方说用户注册、登录、忘记密码等。而从用户的角度出发，那些独有的功能归结起来就是用户界面以及系统的行为模式。而在视觉表象之后的功能，用户并不关心，他们只期望系统能按预期运行就可以了。</p>
+
+<p>前端和后端有各自的侧重点，因此往往也需要不同的技能，由不同的开发人员来负责完成。无后端（<a href="http://nobackend.org/2013/05/welcome-to-noBackend.html">nobackend</a>）的开发原则能够进一步解偶这些不同的侧重点，这样两边的开发人员可以更加专注于各自真正热衷的工作。</p>
+
+<p><img src="http://raohuaming.github.io/images/nobackend-logo.png" title="noBackend" ></p>
+
+<h3>一个简单的例子</h3>
+
+<p>后端经常需要提供API给前端，以下是一个简单的例子，使用API进行用户登录。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">POST</span> <span class="o">/</span><span class="nx">session</span>
+</span><span class='line'><span class="p">{</span> <span class="s2">&quot;email&quot;</span><span class="o">:</span><span class="s2">&quot;joe@example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;password&quot;</span><span class="o">:</span> <span class="s2">&quot;secret&quot;</span>  <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>前端的开发人员需要负责发送上述请求并对结果进行响应，还要考虑到一些极端的情况，如失去连接或不可预知的服务器错误等。与此相反的是，无后端的设计原则则建议由前端开发人员来定义API，用前端的代码来描述后端的功能，举例如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">signIn</span><span class="p">(</span> <span class="s1">&#39;joe@example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;secret&#39;</span>  <span class="p">)</span>
+</span><span class='line'><span class="p">.</span><span class="nx">then</span><span class="p">(</span> <span class="nx">showDashboard</span>  <span class="p">)</span>
+</span><span class='line'><span class="p">.</span><span class="nx">fail</span><span class="p">(</span> <span class="nx">showError</span>  <span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>我们称此为梦幻代码（<a href="http://nobackend.org/dreamcode.html">Dreamcode</a>），因为这些代码经常是在真正的代码可运行以前就已经写好了。初一看，这样并没有多大意义，只不过是改成了发送AJAX请求并调用相应的回调函数而已，但是以这样的方式定义的API在许多方面都会更加强大：</p>
+
+<!--more-->
+
+
+<h4>1. 灵活</h4>
+
+<p>用户如果想要登录，那么他们也就只关心登录这个行为本身，而绝不会去关心：</p>
+
+<ul>
+<li>请求是否是送到应用的服务器还是一个中央的验证服务器</li>
+<li>是一个HTTP的POST请求还是PUT请求。</li>
+<li>是否是通过websocket发送的</li>
+<li>验证使用的cookies还是使用session ID或者是自定义的header</li>
+<li>应用是否会在前一个请求时后再次发送请求</li>
+</ul>
+
+
+<p>signIn这个方法的实现可以进行调整以反映后端的变化，但是就这个API本身，前端开发人员并不需要去修改了。</p>
+
+<h4>2. 简洁</h4>
+
+<p>从前端开发人员的角度来看，实现signIn方法要简单的多，代码量也可以少很多；而从后端开发人员的角度来看，尽管刚开始要投入更多的精力，但是和RESTful API相比，前面的API要更容易定义，文档化和测试。</p>
+
+<h4>3. 前端驱动</h4>
+
+<p>前端开发人员可以引领构建应用的整个设计流程。以Dreadcode的方式来描述后端的功能，可以让开发人员更加专注于用户体验，从而避免了由于讨论具体的实现细节而有所分心，也不会由于要等待后端API的实现而拖延项目的进度。</p>
+
+<h3>一个更加复杂的例子</h3>
+
+<p>当你研究一个更复杂的例子以后，前优势会显得更加明显。假设你想要发送一封邮件，要附上当前页的PDF。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">sendEmail</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">subject</span><span class="o">:</span> <span class="s2">&quot;Hello, World!&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">text</span><span class="o">:</span> <span class="s2">&quot;This mail has been sent from the frontend&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">html</span><span class="o">:</span> <span class="s2">&quot;This mail has been sent from the frontend&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">to</span><span class="o">:</span> <span class="s2">&quot;joe@example.com&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">attachments</span><span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>      <span class="nx">convert</span><span class="p">(</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span>  <span class="p">).</span><span class="nx">to</span><span class="p">(</span><span class="s2">&quot;report.pdf&quot;</span><span class="p">),</span>
+</span><span class='line'>  <span class="p">]</span>
+</span><span class='line'><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>要让这段代码跑起来，并且要让它不受垃圾邮件的影响，可能会相当困难。但是至少可以马上写一些quick和dirty的实现，然后再一点一点地改进，而在这个过程中无需改变API。这里的<strong>关键点</strong>在于，前端开发人员可以把这看成是一个已有的功能，从而可以专注于用户体验，而不需要去关心后台开发人员到目前为止究竟有多么复杂地实现了这个功能。</p>
+
+<h3>现有的一些nobackend的解决方案</h3>
+
+<p>一个nobackend的解决方案应该提供一个前端的API来处理一些通用的后端任务，至少应该包括用户验证、数据持久化和同步等。以下是一些可以关注的方案：</p>
+
+<ul>
+<li><a href="http://backendless.com/">Backendless</a></li>
+<li><a href="http://deployd.com/">deployd</a></li>
+<li><a href="https://www.firebase.com/">Firebase</a></li>
+<li><a href="http://hood.ie/">Hoodie</a></li>
+<li><a href="http://www.kinvey.com/">Kinvey</a></li>
+<li><a href="https://parse.com/">Parse</a></li>
+<li><a href="http://remotestorage.io/">remoteStorage</a></li>
+<li><a href="http://sockethub.org/">Sockethub</a></li>
+</ul>
+
+
+<p>也可以参考下：<a href="http://unhosted.org/">unhosted</a>。以上这个列表中，绝大多数都是托管服务，对于想要用自己的服务器来托管的同学，可以选择开源的deployd。</p>
+
+<p>原文：<a href="http://nobackend.org/2013/05/welcome-to-noBackend.html">http://nobackend.org/2013/05/welcome-to-noBackend.html</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[什么是全栈工程师【译】]]></title>
+    <link href="http://raohuaming.github.io/blog/2014/01/21/what-is-a-full-stack-developer/"/>
+    <updated>2014-01-21T00:17:36+08:00</updated>
+    <id>http://raohuaming.github.io/blog/2014/01/21/what-is-a-full-stack-developer</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://raohuaming.github.io/images/stack.jpg"></p>
+
+<p>最近“知乎”上在热烈讨论一则传闻，说Facebook在招聘所谓的“全栈工程师”，要求应征者对开发堆栈的每个方面都有所掌握。那究竟何为
+“全栈工程师”呢？从字面上来理解，全栈工程师必须熟悉开发堆栈的每一个层次，或者至少熟悉绝大多数并且对所有的软件技术有天生的热情和兴趣。</p>
+
+<p>对于这样的开发者，他们非常擅长使用掌握的技术让自己的生活变得轻松，这也正是为什么Facebook会希望雇佣他们，他们用自己的脑子与热情编码，
+好的产品也自然能在最短的时间呈现。那么，具体而言，一个合格的“全栈工程师”要具备哪些素质呢？</p>
+
+<!--more-->
+
+
+<h3>开发堆栈剖析</h3>
+
+<ol>
+<li><p><em>服务器，网络以及宿主环境</em></p>
+
+<ul>
+<li>需要理解哪些模块可能失效以及为什么，而不能理所当然地认为，只要不断增加资源就能解决所有问题。</li>
+<li>知道如何运用操作系统、云存储、网络资源，并能理解数据冗余以及可用性是必需的。</li>
+<li>了解应用的规模是如何对硬件造成限制的。</li>
+<li>还有多线程和竞态条件，这些概念在开发机上往往不会遇到，但是他们在现实的部署环境中却无处不在。</li>
+<li>全栈工程师还必须要能够与<a href="http://en.wikipedia.org/wiki/DevOps">DevOps</a>很好地协作。他们所设计的系统应该提供有用的错误消息和日
+志能力，这样DevOps就能够及时获得这些信息，并采取有价值的行动。</li>
+</ul>
+</li>
+<li><p><em>数据建模</em></p>
+
+<ul>
+<li>如果数据模型存在缺陷，那么就常常需要在业务逻辑和更高的层面上使用丑陋的代码来弥补那些数据模型没办法覆盖的死角。</li>
+<li>知道如何建立合理的范式关系模型，具备完善的外键、索引、视图、查询表等等。</li>
+<li>还要熟悉非关系型数据的存储，知道非关系型数据库在哪些方面超越关系型数据库。</li>
+</ul>
+</li>
+<li><p><em>业务逻辑</em></p>
+
+<ul>
+<li>这是系统应用价值的关键所在。</li>
+<li>掌握<a href="http://goo.gl/jteHPE">SOLID</a>设计能力（单一职责，开放且封闭，Liskov替代性，接口分离，依赖注入）。</li>
+<li>熟悉一些常用的框架。</li>
+</ul>
+</li>
+<li><p><em>API/Action/MVC</em></p>
+
+<ul>
+<li>这些关乎外部世界如何与业务逻辑及数据模型交互。</li>
+<li>会使用到大量的框架。</li>
+<li>有能力写出清晰、一致、使用简单的接口。</li>
+</ul>
+</li>
+<li><p><em>用户界面</em></p>
+
+<ul>
+<li>全栈工程师需要：a）懂得如何构建易读的布局；b）能意识到艺术家和图形设计师的作用。总之，实现一套好的视觉设计方案尤为关键。</li>
+<li>熟练掌握HTML5/CSS。</li>
+<li>从目前的趋势来看，JavaScript将会是明日之星，最近这一领域硕果累累（NodeJs, backbone, knockout, Angular（自己的加的，
+原文没有））。因此，掌握JavaScript必不可少。</li>
+</ul>
+</li>
+<li><p><em>用户体验</em></p>
+
+<ul>
+<li>全栈工程师应该意识到：用户仅仅是希望一切运转良好。</li>
+<li>一个好的系统是不会让用户得腕管综合征或产生眼疲劳的。全栈工程师能审视全局，可以将一个需要8次点击+3个步骤的过程，简化为仅需要一次点击。</li>
+<li>知道如何向用户提示错误信息。如果出现故障，真诚道歉。有时一些无意的错误信息，会让用户感到莫名奇妙。</li>
+</ul>
+</li>
+<li><p><em>理解用户和市场需求</em></p>
+
+<ul>
+<li>这层关系到系统架构，但也绝不是一个不能碰的角色（有可能翻译有误，原文：but that is too much of a hands off role）。</li>
+<li>全栈工程师要领悟客户使用软件过程中会需要些什么以及整个市场需要些什么。</li>
+</ul>
+</li>
+</ol>
+
+
+<h3>其他方面</h3>
+
+<ol>
+<li>能写出高质量的单元测试，时至今日，甚至连JavaScript都能写出单元测试了。</li>
+<li>知道如何使用可重复的自动化工具来构建系统、测试、撰写文档以及按需部署。</li>
+<li>系统的安全意识非常重要，要知道，开发堆栈中的每一层都可能存在薄弱环节。</li>
+</ol>
+
+
+<h3>总结</h3>
+
+<p>将代码与某个特定的实现（无论是软件库，操作系统，硬件，等等）紧绑在一起并不是好的实践。全栈工程师虽然学术渊博，但不意味着他们能抄
+捷径，除非他们是在开发一个建完即扔的一次性原型。</p>
+
+<p>技术型的创业企业在初期为了满足灵活性，对全栈工程师的需求比较大，但是，随着企业的成熟，会需要越来越多的专业型人才。</p>
+
+<p>要成为一名全栈工程师，至少要使用过多种编程语言在各种领域的不同平台工作多年。全栈工程师除了像“高级工程师”那样要掌握多门编程语言，
+还必须具有更高的视野将所有的模块联系起来。值得注意的是，在以上列表中，仅有3——5项是与编码有关的。</p>
+
+<p>原文：<a href="http://www.laurencegellert.com/2012/08/what-is-a-full-stack-developer/">http://www.laurencegellert.com/2012/08/what-is-a-full-stack-developer/</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How a Majority Vote Reward Scheme Can Improve Human Computation in a Spatial Location Identification Task]]></title>
+    <link href="http://raohuaming.github.io/blog/2014/01/16/how-a-majority-vote-reward-scheme-can-improve-human-computation-in-a-spatial-location-identification-task/"/>
+    <updated>2014-01-16T08:25:12+08:00</updated>
+    <id>http://raohuaming.github.io/blog/2014/01/16/how-a-majority-vote-reward-scheme-can-improve-human-computation-in-a-spatial-location-identification-task</id>
+    <content type="html"><![CDATA[<p>(This post is originaly published in CrowdResearch.org, <a href="http://crowdresearch.org/blog/?p=8186"> link </a>.)</p>
+
+<p><img class="center #" src="http://raohuaming.github.io/images/hcomp13/SpLIT.png" width="1000" height="1000" title="&#34;A spatial location identification task (SpLIT)&#34;" alt="&#34;A spatial location identification task (SpLIT)&#34;"></p>
+
+<p>We created a spatial location identification task (<strong>SpLIT</strong>), in which humans examine a 3D camera view of an environment to
+infer its spatial location on a 2D schematic map (e.g. a floor plan). However, the SpLIT are often difficult to automate
+because the identification of salient cues often requires semantic features that are challenging to recover from the
+image and the map, especially when the cues are ambiguous or do not provide sufficient information to pinpoint the exact
+location.</p>
+
+<p>One natural question to ask is how one can leverage human computation to perform a typical SpLIT. In order to find the
+answer, we designed a study using Amazon Mechanical Turk to investigate how turkers can perform the task in two kinds of
+reward schemes: ground truth and majority vote, even when they were not familiar with the environment.</p>
+
+<p>We carefully chose five pictures represent different levels of ambiguity, in terms of the extent to which workers could
+use the pre-defined markers (cues) to infer the location of the camera view.</p>
+
+<p>The results are listed below: <!--more--></p>
+
+<ol>
+<li><p>The accuracies of each task under both schemes drop as the level of ambiguity increases. This suggests that the lack
+of spatial cues did make the task harder. And it is obvious from the figure that performance in majority vote scheme
+was better than that in the ground truth reward scheme.</p>
+
+<p> <img class="center #" src="http://raohuaming.github.io/images/hcomp13/correctness_of_points.png" width="1000" height="1000" title="&#34;A spatial location identification task (SpLIT)&#34;" alt="&#34;A spatial location identification task (SpLIT)&#34;"></p></li>
+<li><p>We also calculated the accuracies of individual participants, it showed that there were more turkers that at least
+chose one correct location in the majority vote scheme than in the ground truth one. In addition, the percentage with
+high ac- curacies (0.8 and 1.0) in the majority vote scheme is also higher than that in the ground truth one.</p>
+
+<p> <img class="center #" src="http://raohuaming.github.io/images/hcomp13/correctness_of_people.png" width="1000" height="1000" title="&#34;A spatial location identification task (SpLIT)&#34;" alt="&#34;A spatial location identification task (SpLIT)&#34;"></p></li>
+<li><p>To summarize the results, we found that the majority vote reward scheme in general led to a higher level of precision
+and reliability in the answers provided by the workers.</p>
+
+<p> <img class="center #" src="http://raohuaming.github.io/images/hcomp13/compare.png" width="1000" height="1000" title="&#34;A spatial location identification task (SpLIT)&#34;" alt="&#34;A spatial location identification task (SpLIT)&#34;"></p></li>
+</ol>
+
+
+<p>Though there were not enough data to fully understand this result, the current study is clearly a first step towards
+understanding how human computation can be incorporated into applications that support spatial tasks</p>
+
+<p>For more, see our <a href="http://www.aaai.org/ocs/index.php/HCOMP/HCOMP13/paper/view/7525"> full paper </a>.</p>
+
+<p>Author List:</p>
+
+<ul>
+<li><a href="http://web.engr.illinois.edu/~huamingr/"> Huaming Rao </a>, Huaming Rao, Nanjing University of Science &amp; Technology and University of Illinois at Urbana-Champaign.</li>
+<li><a href="http://homes.cs.washington.edu/~wenhuang/index.html"> Shih-Wen Huang </a>, University of Illinois at Urbana-Champaign.</li>
+<li><a href="http://www.cs.illinois.edu/homes/wfu/"> Wai-Tat Fu </a>, University of Illinois at Urbana-Champaign.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Blog online - finally]]></title>
+    <link href="http://raohuaming.github.io/blog/2014/01/15/blog-online-finally/"/>
+    <updated>2014-01-15T08:49:59+08:00</updated>
+    <id>http://raohuaming.github.io/blog/2014/01/15/blog-online-finally</id>
+    <content type="html"><![CDATA[<p>Finally my blog gets online! I have been planing to setup my own blog for
+years.  Well, I&rsquo;m really a typical procrastinator. But anyway I make
+it.</p>
+
+<p>Thanks to <a href="http://pages.github.com">github page</a>, which hosts my blog
+for free! Meanwhile I also have to give the credit to
+<a href="http://octopress.org">Octopress</a>, an amazing framework of blog aware
+static site generator. Actually I have tried many tools before (such as
+<a href="http://middlemanapp.com">Middleman</a>, <a href="http://jekyllrb.com"> Jekyll </a>,
+<a href="http://webgen.gettalong.org">webgen</a> etc.), but Octopress is the most
+handy one.</p>
+
+<!--more-->
+
+
+<p>I&rsquo;m planning to share some ideas or articles about my research (machine
+learning, HCI, crowdsourcing, social computing), rails development,
+novel technologies and of course my life.</p>
+
+<p>At the end, may all my dear friends and myself have a very happy year!
+Get on fire, 2014!</p>
+
+<p><img src="http://raohuaming.github.io/images/yellow_stone.JPG" title="'Yellow Stone Trip'" ></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,273 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>什么是全栈工程师【译】 - Huaming Rao's Blog</title>
+	<meta name="author" content="Huaming Rao">
+
+	
+	<meta name="description" content="最近“知乎”上在热烈讨论一则传闻，说Facebook在招聘所谓的“全栈工程师”，要求应征者对开发堆栈的每个方面都有所掌握。那究竟何为
+“全栈工程师”呢？从字面上来理解，全栈工程师必须熟悉开发堆栈的每一个层次，或者至少熟悉绝大多数并且对所有的软件技术有天生的热情和兴趣。 对于这样的开发者， &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Huaming Rao's Blog" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Huaming Rao's Blog</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:raohuaming.github.io">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		
+		<a class="twitter" href="http://twitter.com/raohuaming" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/raohuaming" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:raohuaming.github.io">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">什么是全栈工程师【译】</h2>
+	<div class="entry-content"><p><img class="right" src="/images/stack.jpg"></p>
+
+<p>最近“知乎”上在热烈讨论一则传闻，说Facebook在招聘所谓的“全栈工程师”，要求应征者对开发堆栈的每个方面都有所掌握。那究竟何为
+“全栈工程师”呢？从字面上来理解，全栈工程师必须熟悉开发堆栈的每一个层次，或者至少熟悉绝大多数并且对所有的软件技术有天生的热情和兴趣。</p>
+
+<p>对于这样的开发者，他们非常擅长使用掌握的技术让自己的生活变得轻松，这也正是为什么Facebook会希望雇佣他们，他们用自己的脑子与热情编码，
+好的产品也自然能在最短的时间呈现。那么，具体而言，一个合格的“全栈工程师”要具备哪些素质呢？</p>
+
+<!--more-->
+
+
+<h3>开发堆栈剖析</h3>
+
+<ol>
+<li><p><em>服务器，网络以及宿主环境</em></p>
+
+<ul>
+<li>需要理解哪些模块可能失效以及为什么，而不能理所当然地认为，只要不断增加资源就能解决所有问题。</li>
+<li>知道如何运用操作系统、云存储、网络资源，并能理解数据冗余以及可用性是必需的。</li>
+<li>了解应用的规模是如何对硬件造成限制的。</li>
+<li>还有多线程和竞态条件，这些概念在开发机上往往不会遇到，但是他们在现实的部署环境中却无处不在。</li>
+<li>全栈工程师还必须要能够与<a href="http://en.wikipedia.org/wiki/DevOps">DevOps</a>很好地协作。他们所设计的系统应该提供有用的错误消息和日
+志能力，这样DevOps就能够及时获得这些信息，并采取有价值的行动。</li>
+</ul>
+</li>
+<li><p><em>数据建模</em></p>
+
+<ul>
+<li>如果数据模型存在缺陷，那么就常常需要在业务逻辑和更高的层面上使用丑陋的代码来弥补那些数据模型没办法覆盖的死角。</li>
+<li>知道如何建立合理的范式关系模型，具备完善的外键、索引、视图、查询表等等。</li>
+<li>还要熟悉非关系型数据的存储，知道非关系型数据库在哪些方面超越关系型数据库。</li>
+</ul>
+</li>
+<li><p><em>业务逻辑</em></p>
+
+<ul>
+<li>这是系统应用价值的关键所在。</li>
+<li>掌握<a href="http://goo.gl/jteHPE">SOLID</a>设计能力（单一职责，开放且封闭，Liskov替代性，接口分离，依赖注入）。</li>
+<li>熟悉一些常用的框架。</li>
+</ul>
+</li>
+<li><p><em>API/Action/MVC</em></p>
+
+<ul>
+<li>这些关乎外部世界如何与业务逻辑及数据模型交互。</li>
+<li>会使用到大量的框架。</li>
+<li>有能力写出清晰、一致、使用简单的接口。</li>
+</ul>
+</li>
+<li><p><em>用户界面</em></p>
+
+<ul>
+<li>全栈工程师需要：a）懂得如何构建易读的布局；b）能意识到艺术家和图形设计师的作用。总之，实现一套好的视觉设计方案尤为关键。</li>
+<li>熟练掌握HTML5/CSS。</li>
+<li>从目前的趋势来看，JavaScript将会是明日之星，最近这一领域硕果累累（NodeJs, backbone, knockout, Angular（自己的加的，
+原文没有））。因此，掌握JavaScript必不可少。</li>
+</ul>
+</li>
+<li><p><em>用户体验</em></p>
+
+<ul>
+<li>全栈工程师应该意识到：用户仅仅是希望一切运转良好。</li>
+<li>一个好的系统是不会让用户得腕管综合征或产生眼疲劳的。全栈工程师能审视全局，可以将一个需要8次点击+3个步骤的过程，简化为仅需要一次点击。</li>
+<li>知道如何向用户提示错误信息。如果出现故障，真诚道歉。有时一些无意的错误信息，会让用户感到莫名奇妙。</li>
+</ul>
+</li>
+<li><p><em>理解用户和市场需求</em></p>
+
+<ul>
+<li>这层关系到系统架构，但也绝不是一个不能碰的角色（有可能翻译有误，原文：but that is too much of a hands off role）。</li>
+<li>全栈工程师要领悟客户使用软件过程中会需要些什么以及整个市场需要些什么。</li>
+</ul>
+</li>
+</ol>
+
+
+<h3>其他方面</h3>
+
+<ol>
+<li>能写出高质量的单元测试，时至今日，甚至连JavaScript都能写出单元测试了。</li>
+<li>知道如何使用可重复的自动化工具来构建系统、测试、撰写文档以及按需部署。</li>
+<li>系统的安全意识非常重要，要知道，开发堆栈中的每一层都可能存在薄弱环节。</li>
+</ol>
+
+
+<h3>总结</h3>
+
+<p>将代码与某个特定的实现（无论是软件库，操作系统，硬件，等等）紧绑在一起并不是好的实践。全栈工程师虽然学术渊博，但不意味着他们能抄
+捷径，除非他们是在开发一个建完即扔的一次性原型。</p>
+
+<p>技术型的创业企业在初期为了满足灵活性，对全栈工程师的需求比较大，但是，随着企业的成熟，会需要越来越多的专业型人才。</p>
+
+<p>要成为一名全栈工程师，至少要使用过多种编程语言在各种领域的不同平台工作多年。全栈工程师除了像“高级工程师”那样要掌握多门编程语言，
+还必须具有更高的视野将所有的模块联系起来。值得注意的是，在以上列表中，仅有3——5项是与编码有关的。</p>
+
+<p>原文：<a href="http://www.laurencegellert.com/2012/08/what-is-a-full-stack-developer/">http://www.laurencegellert.com/2012/08/what-is-a-full-stack-developer/</a></p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+Jan 21st, 2014</div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/develop/'>develop</a>, <a class='category' href='/blog/categories/translation/'>translation,</a>
+
+
+</div>
+	
+	<div class="comments"><a href="#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+		
+		
+		<a class="addthis_button_tweet"></a>
+		
+		
+		<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+		
+		
+	</div>
+	
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2015
+
+    Huaming Rao
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'huaming-gh-pages';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://raohuaming.github.io/blog/2014/01/21/what-is-a-full-stack-developer/';
+        var disqus_url = 'http://raohuaming.github.io/blog/2014/01/21/what-is-a-full-stack-developer/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//go.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-38951229-3']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+</body>
+</html>

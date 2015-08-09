@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://raohuaming.github.io/sitemap.xml 

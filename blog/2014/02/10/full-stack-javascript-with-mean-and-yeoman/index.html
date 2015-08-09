@@ -1,0 +1,322 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>全Javascript的Web开发架构：MEAN和Yeoman【译】 - Huaming Rao's Blog</title>
+	<meta name="author" content="Huaming Rao">
+
+	
+	<meta name="description" content="引言 最近在Angular社区的原型开发者间，一种全Javascript的开发架构MEAN正突然流行起来。其首字母分别代表的是：(M)ongoDB——noSQL的文档数据库，使用JSON风格来存储数据，甚至也是使用JS来进行sql查询；(E)xpress——基于Node的Web开发框架；(A) &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Huaming Rao's Blog" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Huaming Rao's Blog</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:raohuaming.github.io">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		
+		<a class="twitter" href="http://twitter.com/raohuaming" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/raohuaming" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:raohuaming.github.io">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">全Javascript的Web开发架构：MEAN和Yeoman【译】</h2>
+	<div class="entry-content"><h2>引言</h2>
+
+<p>最近在Angular社区的原型开发者间，一种全Javascript的开发架构MEAN正突然流行起来。其首字母分别代表的是：(M)ongoDB——noSQL的文档数据库，使用JSON风格来存储数据，甚至也是使用JS来进行sql查询；(E)xpress——基于Node的Web开发框架；(A)agular——JS的前端开发框架，提供了声明式的双向数据绑定；(N)ode——基于V8的运行时环境（JS语言开发），可以构建快速响应、可扩展的网络应用。</p>
+
+<p><img class="right" src="/images/mean-stack.png"></p>
+
+<p>MEAN的支持者宣称，如果整个开发栈均能使用JS，必然会大大地提高效率，这一点毋庸置疑是一个很大的卖点。这样一来，开发人员（无论是前端还是后端）不仅能使用一致的数据模型，在其它方面也同样可以获得一致的编程体验。</p>
+
+<p>例如，拿Mongo来说，你可以使用类JSON格式（BSON，二进制的JSON）来存储数据，然后在Express/Node中调用JSON查询语句，再将结果以JSON格式传给前端的Angular显示，这样，也自然使调试程序容易了很多。</p>
+
+<!--more-->
+
+
+<p><strong>注意: 事实上，在MEAN架构中，前端的Angular并不是必须的，你可以将它替换成其他的前端框架，如Backbone、Ember或者Polymer。</strong></p>
+
+<h2>为何选择MongoDB？</h2>
+
+<p>如上所提，这个架构最重要的优势在于能使用单一语言，这也是其选择了Mongo的首要原因。 这里就不讨论noSQL的是与非了。一些人对MEAN架构的指责在于，MongoDB可以很好地胜任中小型的应用，但是对于大规模应用（百万级用户）来说可能就捉襟见肘。我想说的是，这完全取决于你如何使用它。</p>
+
+<p>SQL数据库本身是强类型的，因此可以在很大程度上保证某种层次的一致，从而确保许多类型的脏数据一开始就没办法进入数据库。而NoSQL则是弱类型的数据库，这使得它在数据验证方面力不从心，而只能交给开发人员来实现，基于这样的特性，它尤其适合存储那些不规范的数据，特别是在原型开发阶段，此时数据模型正在经历快速变化。</p>
+
+<p>SQL和noSQL间的技术差别，归根结底是要在性能和稳定性间作出平衡。有些情况下，对数据的事务处理一旦设定后就不会轻易变化，那么此时使用Mongo就非常合适；然而有时候也会涉及更为复杂的事务处理，会牵扯到许多独立的业务逻辑，由于Mongo并没有提供一个简单的数据模型来支持一定级别的原子操作，因此SQL在这个时候可以派上用场。</p>
+
+<p>但无论如何，不论你是否选择MEAN中的M，你最终都需要根据自身的需求选择出合适的工具来做正确的事情，</p>
+
+<h2>为何是Express?</h2>
+
+<p>可以简单地把Express看成是一个在Node平台下搭建Web应用的工具集。在Node的基础上，它提供了许多简洁的接口来创建请求节点、处理cookie等，此外还提供了许多功能来帮助你搭建自己的服务器。总的来说，Express在以下几个方面有优势：</p>
+
+<ul>
+<li>设置REST路由简单致极：</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="sr">/account/</span><span class="o">:</span><span class="nx">id</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">){</span> <span class="cm">/* req.params(&#39;id&#39;) is available */</span> <span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>支持Jade或Mustache等模板引擎</li>
+<li>自动HTTP头处理:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">){</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span><span class="nx">object</span><span class="o">:</span> <span class="s1">&#39;foo&#39;</span><span class="p">});</span> <span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>支持Connect中间件，可以插入额外请求或响应处理，如用户验证</li>
+<li>提供辅助函数解析POST请求</li>
+<li>防范XSS</li>
+<li>优雅的错误处理</li>
+</ul>
+
+
+<h2>如何快速上手MEAN</h2>
+
+<p>如果想要很快上手MEAN，那么<a href="http://mean.io/">mean.io</a>是一个很不错的选择。该项目旨在解决MEAN架构中一些常见的集成问题, 目前维护得很好，文档也很清楚，而且可以很方便地自行添加第三方库，还能和Yeoman配合使用（通过 <a href="https://github.com/jrcryer/generator-mean">generator-mean</a> by James Cryer）。</p>
+
+<p>在进一步阅读前，先假定我们同意以下观点：（a）Mongo至少非常适合于全Javascript堆栈的原型设计；（b） 承认即使像Angular般如日中天，终有一天也会被其他的一些JS框架给取代，只要它们能帮助我们快速方便地将这个架构快速搭建起来。</p>
+
+<p>接下来就要介绍<a href="http://yeoman.io/">Yeoman</a> 了，它由3个你所熟知的工具构成：</p>
+
+<ul>
+<li>Grunt：用于生成，预览和自动化测试你的项目，这要特别感谢由Yeoman和grin t-contrib团队创建的许多grunt tasks。</li>
+<li>Bower：前端的依赖管理工具，有了它你再也不需要手动下载和管理第三方JS库了。</li>
+<li>YO：快速生成一个新的应用，包括配置好你的Grunt任务以及你极有可能会用到的Bower依赖。</li>
+</ul>
+
+
+<p>笔者在一年以前，曾和其他一些人创建过一个叫<a href="https://plus.google.com/+AddyOsmani/posts/YDNbxVxi4er">ExpressStack</a>的项目，其想法很简单，就是要提供一些工具能够快速生成构建全JS的Web应用所需要的一切。但是，这个项目夭折了，尽管如此，许多类似的项目却如雨后春笋般涌现出来。</p>
+
+<p>下面对这些项目作些介绍：</p>
+
+<p><strong>注意: 你可能需要装好Yeomam(npm install -g yo)和以下一些生成器（npm install -g <generator-name>）。</strong></p>
+
+<h3><a href="https://github.com/DaftMonk/generator-angular-fullstack">generator-angular-fullstack</a></h3>
+
+<p>这是一个AngularJS的生成器，集成了Express,可选MongoDB。主要功能如下：</p>
+
+<ul>
+<li>支持客户端和服务端的Livereload。</li>
+<li>Express server集成了grunt tasks。</li>
+<li>内建了方便的部署流程。</li>
+<li>支持Jade。</li>
+</ul>
+
+
+<p>可参考: <a href="http://tylerhenkel.com/creating-apps-with-angular-and-node-using-yeoman/">http://tylerhenkel.com/creating-apps-with-angular-and-node-using-yeoman/</a></p>
+
+<h3><a href="https://github.com/wlepinski/generator-meanstack">generator-meanstack</a></h3>
+
+<p>另一个MEAN架构的生成器，集成了grunt-express，功能如下：</p>
+
+<ul>
+<li>在generator-angular的基础上，用express取代了Connect。</li>
+<li>支持客户端和服务端的Livereload。</li>
+<li>使用app_grunt.js文件来启动应用，而在app.js中定义路由。</li>
+<li>目录结构基本沿袭了generator-angular的风格，只作了少许的改动。</li>
+</ul>
+
+
+<p>可参考：<a href="https://github.com/Grievoushead/generator-express-angular">https://github.com/Grievoushead/generator-express-angular</a></p>
+
+<h3><a href="https://github.com/jackrabbitsgroup/generator-mean-seed">generator-mean-seed</a></h3>
+
+<p>集成了Mongo，Express，Angular，Yeoman，Karma和Protractor（作自动测试）。</p>
+
+<h3><a href="https://github.com/klei-dev/generator-klei">generator-klei</a></h3>
+
+<p>和其他的很类似，不过使用的是Mongoose和Stylus，其他的一些功能包括：</p>
+
+<ul>
+<li>其目录结构非常容易扩张（包含了一个TODO List的应用例子）</li>
+<li>一个配置完整的Gruntfile，集合了livereload, linting, concatenation, minification等.</li>
+<li>使用exctrl来自动挂载API。</li>
+<li>使用了grunt-injector，从而无需手动修改Html的layout文件，就可以自动装载新添加的js和css。</li>
+<li>使用Karma, Mocha和Chai来进行前端的单元测试。</li>
+</ul>
+
+
+<h3><a href="https://github.com/pilwon/ultimate-seed-generator">ultimate-seed-generator</a></h3>
+
+<p>该生成器非常全面，添加了许多第三方的库，包括Passport用于用户登录，Browserify加载js。</p>
+
+<ul>
+<li>集成了AngularUI, Barbeque（用于任务队列管理）和Bootstrap</li>
+<li>集成了Bower, Browserify，Express和Font Awesome</li>
+<li>集成了Grunt, Handlebars, jQuery, JSHint和Karma/Mocha</li>
+<li>支持LESS/LESSHat, Livereload和Lodash/Underscore</li>
+<li>集成了Modernizr, MongoDB/Mongoose和Passport</li>
+</ul>
+
+
+<h2>该如何做出选择?</h2>
+
+<p>看了这么多的生成器，自然要问，我该选择哪一个呢？事实上，以上列表是有顺序的，依据的是其与最新版的Yeoman的兼容性以及维护的活跃度。</p>
+
+<h2>全Javascript的架构是否适合于产品级的应用呢？</h2>
+
+<p>不得不承认，如果开发堆栈的每一层都能使用JavaScript将会是一件很棒的事情（至少对于原型开发来说是这样），然而千万要注意，不要为了追求这一目标，而把自己而束缚住了。尽管的确有越来越多的大规模应用都在采用类似的架构，如Walmart、LinkedIn，但并不意味着模仿他们就一定能成功。</p>
+
+<p>另一个需要注意的是，相对于其他的语言（如Ruby，Python或Java），在Node上搭建后端要困难得多。你可能要自己处理内存泄漏，避免在事件循环中进行耗时运算，还要非常小心异常处理，如果这些处理不当就很有可能会导致整个应用服务器崩溃，但是这些问题在其他平台上却已经处理得很好了。然而，这并不是说，Node不能运用在生产环境下，当然可以，但要格外用心。</p>
+
+<p>实话实说，想要“一揽子”为Web应用提供一个大而全的解决方案将非常困难，MEAN架构也肯定有其局限性。在前端与后端的设计模式、原则和风格中有大量的演化，如果你觉得PHP或Rails是更明智的选择，那就继续使用下去，否则的话，不妨试试MEAN，至少在当下值得一试。</p>
+
+<p>【原文：<a href="http://addyosmani.com/blog/full-stack-javascript-with-mean-and-yeoman/">http://addyosmani.com/blog/full-stack-javascript-with-mean-and-yeoman/</a> 】</p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+Feb 10th, 2014</div>
+	<div class="tags">
+
+</div>
+	
+	<div class="comments"><a href="#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+		
+		
+		<a class="addthis_button_tweet"></a>
+		
+		
+		<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+		
+		
+	</div>
+	
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2015
+
+    Huaming Rao
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'huaming-gh-pages';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://raohuaming.github.io/blog/2014/02/10/full-stack-javascript-with-mean-and-yeoman/';
+        var disqus_url = 'http://raohuaming.github.io/blog/2014/02/10/full-stack-javascript-with-mean-and-yeoman/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//go.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-38951229-3']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+</body>
+</html>
