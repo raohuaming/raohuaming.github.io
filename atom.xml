@@ -4,7 +4,7 @@
   <title><![CDATA[Huaming Rao's Blog]]></title>
   <link href="http://raohuaming.github.io/atom.xml" rel="self"/>
   <link href="http://raohuaming.github.io/"/>
-  <updated>2015-08-09T22:52:53+08:00</updated>
+  <updated>2015-08-09T23:08:12+08:00</updated>
   <id>http://raohuaming.github.io/</id>
   <author>
     <name><![CDATA[Huaming Rao]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Emerging Dynamics in Crowdfunding Campaigns]]></title>
     <link href="http://raohuaming.github.io/blog/2014/03/21/emerging-dynamics-in-crowdfunding-campaigns/"/>
-    <updated>2014-03-21T14:15:38+08:00</updated>
+    <updated>2014-03-21T00:15:38+08:00</updated>
     <id>http://raohuaming.github.io/blog/2014/03/21/emerging-dynamics-in-crowdfunding-campaigns</id>
     <content type="html"><![CDATA[<p><img class="center" src="http://raohuaming.github.io/images/sbp14/money.jpg"></p>
 
@@ -71,9 +71,9 @@
   
   <entry>
     <title type="html"><![CDATA[全Javascript的Web开发架构：MEAN和Yeoman【译】]]></title>
-    <link href="http://raohuaming.github.io/blog/2014/02/10/full-stack-javascript-with-mean-and-yeoman/"/>
-    <updated>2014-02-10T08:29:10+08:00</updated>
-    <id>http://raohuaming.github.io/blog/2014/02/10/full-stack-javascript-with-mean-and-yeoman</id>
+    <link href="http://raohuaming.github.io/blog/2014/02/09/full-stack-javascript-with-mean-and-yeoman/"/>
+    <updated>2014-02-09T18:29:10+08:00</updated>
+    <id>http://raohuaming.github.io/blog/2014/02/09/full-stack-javascript-with-mean-and-yeoman</id>
     <content type="html"><![CDATA[<h2>引言</h2>
 
 <p>最近在Angular社区的原型开发者间，一种全Javascript的开发架构MEAN正突然流行起来。其首字母分别代表的是：(M)ongoDB——noSQL的文档数据库，使用JSON风格来存储数据，甚至也是使用JS来进行sql查询；(E)xpress——基于Node的Web开发框架；(A)agular——JS的前端开发框架，提供了声明式的双向数据绑定；(N)ode——基于V8的运行时环境（JS语言开发），可以构建快速响应、可扩展的网络应用。</p>
@@ -230,7 +230,7 @@
   <entry>
     <title type="html"><![CDATA[无后端（nobackend）：前端优先的Web开发【译】]]></title>
     <link href="http://raohuaming.github.io/blog/2014/01/26/nobackend-front-end-first-web-development/"/>
-    <updated>2014-01-26T23:49:18+08:00</updated>
+    <updated>2014-01-26T09:49:18+08:00</updated>
     <id>http://raohuaming.github.io/blog/2014/01/26/nobackend-front-end-first-web-development</id>
     <content type="html"><![CDATA[<p>每个应用都由两样东西构成：该应用独有的功能和所有应用共有的功能，比方说用户注册、登录、忘记密码等。而从用户的角度出发，那些独有的功能归结起来就是用户界面以及系统的行为模式。而在视觉表象之后的功能，用户并不关心，他们只期望系统能按预期运行就可以了。</p>
 
@@ -339,9 +339,9 @@
   
   <entry>
     <title type="html"><![CDATA[什么是全栈工程师【译】]]></title>
-    <link href="http://raohuaming.github.io/blog/2014/01/21/what-is-a-full-stack-developer/"/>
-    <updated>2014-01-21T00:17:36+08:00</updated>
-    <id>http://raohuaming.github.io/blog/2014/01/21/what-is-a-full-stack-developer</id>
+    <link href="http://raohuaming.github.io/blog/2014/01/20/what-is-a-full-stack-developer/"/>
+    <updated>2014-01-20T10:17:36+08:00</updated>
+    <id>http://raohuaming.github.io/blog/2014/01/20/what-is-a-full-stack-developer</id>
     <content type="html"><![CDATA[<p><img class="right" src="http://raohuaming.github.io/images/stack.jpg"></p>
 
 <p>最近“知乎”上在热烈讨论一则传闻，说Facebook在招聘所谓的“全栈工程师”，要求应征者对开发堆栈的每个方面都有所掌握。那究竟何为
@@ -443,9 +443,9 @@
   
   <entry>
     <title type="html"><![CDATA[How a Majority Vote Reward Scheme Can Improve Human Computation in a Spatial Location Identification Task]]></title>
-    <link href="http://raohuaming.github.io/blog/2014/01/16/how-a-majority-vote-reward-scheme-can-improve-human-computation-in-a-spatial-location-identification-task/"/>
-    <updated>2014-01-16T08:25:12+08:00</updated>
-    <id>http://raohuaming.github.io/blog/2014/01/16/how-a-majority-vote-reward-scheme-can-improve-human-computation-in-a-spatial-location-identification-task</id>
+    <link href="http://raohuaming.github.io/blog/2014/01/15/how-a-majority-vote-reward-scheme-can-improve-human-computation-in-a-spatial-location-identification-task/"/>
+    <updated>2014-01-15T18:25:12+08:00</updated>
+    <id>http://raohuaming.github.io/blog/2014/01/15/how-a-majority-vote-reward-scheme-can-improve-human-computation-in-a-spatial-location-identification-task</id>
     <content type="html"><![CDATA[<p>(This post is originaly published in CrowdResearch.org, <a href="http://crowdresearch.org/blog/?p=8186"> link </a>.)</p>
 
 <p><img class="center #" src="http://raohuaming.github.io/images/hcomp13/SpLIT.png" width="1000" height="1000" title="&#34;A spatial location identification task (SpLIT)&#34;" alt="&#34;A spatial location identification task (SpLIT)&#34;"></p>
@@ -501,9 +501,9 @@ understanding how human computation can be incorporated into applications that s
   
   <entry>
     <title type="html"><![CDATA[Blog online - finally]]></title>
-    <link href="http://raohuaming.github.io/blog/2014/01/15/blog-online-finally/"/>
-    <updated>2014-01-15T08:49:59+08:00</updated>
-    <id>http://raohuaming.github.io/blog/2014/01/15/blog-online-finally</id>
+    <link href="http://raohuaming.github.io/blog/2014/01/14/blog-online-finally/"/>
+    <updated>2014-01-14T18:49:59+08:00</updated>
+    <id>http://raohuaming.github.io/blog/2014/01/14/blog-online-finally</id>
     <content type="html"><![CDATA[<p>Finally my blog gets online! I have been planing to setup my own blog for
 years.  Well, I&rsquo;m really a typical procrastinator. But anyway I make
 it.</p>
