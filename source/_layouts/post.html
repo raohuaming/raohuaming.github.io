@@ -7,9 +7,15 @@ single: true
 {% unless page.sharing == false %}
 	{% include post/sharing.html %}
 {% endunless %}
-{% if site.disqus_short_name and page.comments == true %}
+{% if site.disqus_short_name and page.disqus_show_comment_count == true %}
 <section id="comment">
     <h2 class="title">Comments</h2>
     <div id="disqus_thread" aria-live="polite">{% include post/disqus_thread.html %}</div>
+</section>
+{% endif %}
+{% if site.uyan_comments and page.comments == true %}
+<section id="comment">
+    <h2 class="title">评论</h2>
+    {% include post/uyan_thread.html %}
 </section>
 {% endif %}
