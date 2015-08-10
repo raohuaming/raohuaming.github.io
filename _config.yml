@@ -99,7 +99,11 @@ google_analytics_tracking_id: UA-38951229-3
 
 # Facebook Like
 facebook_like: true
+facebook_user: huaming.rao
 
 # Sina weibo
 weibo_user: 1729926244
 weibo_share_button: true
+
+# Linked In
+linkedin_user: huamingrao
