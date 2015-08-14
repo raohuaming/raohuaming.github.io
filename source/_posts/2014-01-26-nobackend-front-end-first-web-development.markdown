@@ -3,7 +3,7 @@ layout: post
 title: "无后端（nobackend）：前端优先的Web开发【译】"
 date: 2014-01-26 09:49:18 +0800
 comments: true
-categories: translation, front-end
+categories: translation front-end
 ---
 
 每个应用都由两样东西构成：该应用独有的功能和所有应用共有的功能，比方说用户注册、登录、忘记密码等。而从用户的角度出发，那些独有的功能归结起来就是用户界面以及系统的行为模式。而在视觉表象之后的功能，用户并不关心，他们只期望系统能按预期运行就可以了。

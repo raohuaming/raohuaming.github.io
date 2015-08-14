@@ -1,0 +1,71 @@
+---
+layout: post
+title: "Meteor 1.2将拥抱ES6，AngularJS和React"
+date: 2015-08-10 11:53:11 +0800
+comments: true
+categories: develop translation
+---
+
+Meteor 1.2即将在今夏晚些时候发布，让我们先来一睹为快它有哪些新的特性：
+
+* [ 通用Javascript: 采用ECMAScript 2015 (ES6) ](#universal_javascript)
+* [ 反应式渲染: 优先支持Angular和React ](#reactive_rendering)
+* [ 开发体验: 更快及更加灵活的构建流程 ](#developer_experience)
+
+此外，Meteor团队也公布了他们在[1.2版本之后的开发路线](#road_ahead)。
+
+具体信息请参考官方Blog文章，[戳这里](http://info.meteor.com/blog/whats-coming-in-meteor-12-and-beyond)。
+
+<!--more-->
+
+## Meteor 1.2的更新将集中在以下几个方面
+
+### <a name="universal_javascript"></a> 通用Javascript: 采用ECMAScript 2015 (ES6)
+
+[ECMAScript2015](http://www.ecma-international.org/ecma-262/6.0/index.html)，也称ES6，是Javascript社区最为最要的一个里程碑。这个版本可以称得上是"有史以来最好的Javascript"了，添加了类，块作用域等许多新特性。通过引入这些特性，解决了许多JS被大家所诟病的地方，必将吸引更多的开发者加入JS这个社区。Meteor团队认为，所有用JS写应用的开发者都应该使用ES2015，因此他们决定将ES2015作为Meteor平台的官方JS版本。他们的目的是要让Meteor成为使用ES2015最好的方式，同时为所有的平台，无论客户端还是服务器端，提供无缝的ES2015体验。Meteor1.2将是实现这种无缝开发体验的第一步：这个版本将添加对ES2015所有特性的支持（除了模块），能够自动通过[Babel](https://babeljs.io/)转录JS文件，从而使这个版本能够运行在所有Meteor所支持的设备和浏览器上，除此之外，他们还将所有的例子和文档都改写成了ES2015的语法。
+
+既然可以如此简单的支持ES2015，Meteor团队希望在新的版本中，所有开发者都能够尽早开始使用ES2015（最好今天就开始）。这是Javascript的一次巨大飞跃。但是如果大家还没有准备好切换到ES2015，或者希望能逐步迁移现有的代码，不用着急，在Meteor1.2中，你同样可以选择这样做。你可以将一部分代码写成ES2015，而另一部分保持原来的语法，然后再以你自己的步伐慢慢进行调整。
+
+### <a name="reactive_rendering"></a> 反应式渲染: 优先支持Angular和React
+
+开发者都希望自己的应用是反应式（reactive）和响应式（responsive）的，所以难怪大家对于反应式渲染框架（如Angular和React等）的崛起表现得如此兴奋。好消息是，在Meteor1.2中，将保证无论是使用Blaze，React还是Angular，都会有一个非常棒的开发体验。 
+
+Meteor和Angular/React的关系就像是花生酱沾果冻，绝配。反应式渲染只是构建一个完整的基于"[Optimistic
+UI](http://info.meteor.com/blog/optimistic-ui-with-meteor-latency-compensation)"的反应式应用的一小部分，Meteor提供了其他的部分让你能够构建一个完整的应用，从安全的服务端逻辑，到一个全栈的反应式数据系统，甚至到PhoneGap软件的构建支持。最重要的是，不像BaaS，Meteor可是开源的。
+
+所以Angular和React将会被Meteor原生支持，从而更好地支撑起Meteor库中的视图层。事实上，官方的Meteor教程已经有两个版本了，Blaze和Angular，React版的教程不久也会上线。如果想要了解更多这方面的信息，请稳步至[Angular
+Meteor](http://angular-meteor.com/)的官方网站，或者参考以下两篇介绍React+Meteor的文章：[Getting started with React in Meteor](http://react-in-meteor.readthedocs.org/en/latest/)和[Sashko的论坛帖子](https://forums.meteor.com/t/preview-of-official-react-support/6150)。
+
+### <a name="developer_experience"></a> 开发体验: 更快及更加灵活的构建流程
+
+开发体验一直以来都是Meteor团队的重中之重，为此他们开发一整套的工具链，而Meteor 1.2则着重在使其构建工具链更加的快速和灵活。
+
+更快意味着能够支持更大和更加复杂的应用，以及能确保提供高级的JS构建任务（如ES2015和JSX）。为此，他们精心搭建了一个缓存系统，从而实现在有许多转录发生的情况下，能够计算出最小的构建步骤来更新应用。
+
+更加灵活则意味着为插件的开发者内建了更加深层和丰富的用于构建过程的钩子。这无疑为工具包的开发者拓展Metero提供了全新的机会，比如可以从Meteor代码的内部来对Bootstrap进行定制构建，或者只需要添加一个包就可以检查代码。这也解决了一个Meteor中一直存在的关于LESS的限制，之前的版本不得不以一种很尴尬的方式来绕过。
+
+
+## <a name="road_ahead"></a> 1.2版本之后的开发路线
+
+除了1.2版本以外，Meteor团队还希望在其他的领域能够完善Meteor，这些领域可以总结为以下几个方面：
+
+### 集成
+
+__SQL__
+官方的SQL的支持将会吸引另外一大批开发者来使用Meteor。Meteor将会渐近式地支持SQL，先从SQL的“observeChanges”开始，然后逐步将它构建成Meteor全栈上的内建支持。
+
+__REST和微服务模式__.
+Meteor团队将会研究如何能更好地处理那些来自于现成后端服务的数据，也行会通过核心功能的形式，或者connector包和模式指导的模式。
+
+### 应用架构
+
+__构建栈__ Meteor团队将会把一些社区要求的功能，如routing，并入核心库中，而且会采用更加果断的态度来建议如何构建大型的Meteor应用。当然，这些建议是可选的，主要是针对那些需要的开发团队。而对于哪个功能会并入核心库中，Meteor团队的方法是从Atmosphere以及Meteor开发者用户中选出那些最受欢迎的库，然后再对它们进行集成。同时，他们也会添加任何能使开发更加容易的功能。
+
+__ES15模块__
+Meteor团队将会将自产的前ES15时代的命名系统替换成更加耀眼和现代的ES15模块。Meteor的计划是，会保留Rails风格的“do what I mean”，为那些需要的开发者自动做符号解析，与此同时如果偏爱另一种方式，也会允许使用严格的，显性的命名空间控制。
+
+__测试改善__ Meteor团队计划将Velocity并入核心库中，同时对它进行简化和流程化。
+
+
+__移动端推进__ 在移动端构建工具链的方向上有许多的可能性，包括新的技术，如React
+Native，到其他更加广泛的涉及跨平台构建及debug的工具集，。

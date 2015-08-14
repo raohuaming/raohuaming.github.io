@@ -3,7 +3,7 @@ layout: post
 title: "全Javascript的Web开发架构：MEAN和Yeoman【译】"
 date: 2014-02-09 18:29:10 +0800
 comments: true
-categories: 
+categories: develop translation
 ---
 ## 引言
 
