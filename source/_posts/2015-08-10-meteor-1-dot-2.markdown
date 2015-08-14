@@ -16,6 +16,7 @@ Meteor 1.2即将在今夏晚些时候发布，让我们先来一睹为快它有�
 
 具体信息请参考官方Blog文章，[戳这里](http://info.meteor.com/blog/whats-coming-in-meteor-12-and-beyond)。
 
+{% img center /images/metor-shower-471048.jpg %}
 <!--more-->
 
 ## Meteor 1.2的更新将集中在以下几个方面
