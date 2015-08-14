@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: translation, | Huaming Rao's Blog]]></title>
+  <title><![CDATA[Category: translation | Huaming Rao's Blog]]></title>
   <link href="http://raohuaming.github.io/blog/categories/translation/atom.xml" rel="self"/>
   <link href="http://raohuaming.github.io/"/>
-  <updated>2015-08-10T11:32:28+08:00</updated>
+  <updated>2015-08-14T08:59:05+08:00</updated>
   <id>http://raohuaming.github.io/</id>
   <author>
     <name><![CDATA[Huaming Rao]]></name>
@@ -12,6 +12,225 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Meteor 1.2将拥抱ES6，AngularJS和React]]></title>
+    <link href="http://raohuaming.github.io/blog/2015/08/10/meteor-1-dot-2/"/>
+    <updated>2015-08-10T11:53:11+08:00</updated>
+    <id>http://raohuaming.github.io/blog/2015/08/10/meteor-1-dot-2</id>
+    <content type="html"><![CDATA[<p>Meteor 1.2即将在今夏晚些时候发布，让我们先来一睹为快它有哪些新的特性：</p>
+
+<ul>
+<li><a href="#universal_javascript"> 通用Javascript: 采用ECMAScript 2015 (ES6) </a></li>
+<li><a href="#reactive_rendering"> 反应式渲染: 优先支持Angular和React </a></li>
+<li><a href="#developer_experience"> 开发体验: 更快及更加灵活的构建流程 </a></li>
+</ul>
+
+
+<p>此外，Meteor团队也公布了他们在<a href="#road_ahead">1.2版本之后的开发路线</a>。</p>
+
+<p>具体信息请参考官方Blog文章，<a href="http://info.meteor.com/blog/whats-coming-in-meteor-12-and-beyond">戳这里</a>。</p>
+
+<!--more-->
+
+
+<h2>Meteor 1.2的更新将集中在以下几个方面</h2>
+
+<h3><a name="universal_javascript"></a> 通用Javascript: 采用ECMAScript 2015 (ES6)</h3>
+
+<p><a href="http://www.ecma-international.org/ecma-262/6.0/index.html">ECMAScript2015</a>，也称ES6，是Javascript社区最为最要的一个里程碑。这个版本可以称得上是"有史以来最好的Javascript"了，添加了类，块作用域等许多新特性。通过引入这些特性，解决了许多JS被大家所诟病的地方，必将吸引更多的开发者加入JS这个社区。Meteor团队认为，所有用JS写应用的开发者都应该使用ES2015，因此他们决定将ES2015作为Meteor平台的官方JS版本。他们的目的是要让Meteor成为使用ES2015最好的方式，同时为所有的平台，无论客户端还是服务器端，提供无缝的ES2015体验。Meteor1.2将是实现这种无缝开发体验的第一步：这个版本将添加对ES2015所有特性的支持（除了模块），能够自动通过<a href="https://babeljs.io/">Babel</a>转录JS文件，从而使这个版本能够运行在所有Meteor所支持的设备和浏览器上，除此之外，他们还将所有的例子和文档都改写成了ES2015的语法。</p>
+
+<p>既然可以如此简单的支持ES2015，Meteor团队希望在新的版本中，所有开发者都能够尽早开始使用ES2015（最好今天就开始）。这是Javascript的一次巨大飞跃。但是如果大家还没有准备好切换到ES2015，或者希望能逐步迁移现有的代码，不用着急，在Meteor1.2中，你同样可以选择这样做。你可以将一部分代码写成ES2015，而另一部分保持原来的语法，然后再以你自己的步伐慢慢进行调整。</p>
+
+<h3><a name="reactive_rendering"></a> 反应式渲染: 优先支持Angular和React</h3>
+
+<p>开发者都希望自己的应用是反应式（reactive）和响应式（responsive）的，所以难怪大家对于反应式渲染框架（如Angular和React等）的崛起表现得如此兴奋。好消息是，在Meteor1.2中，将保证无论是使用Blaze，React还是Angular，都会有一个非常棒的开发体验。</p>
+
+<p>Meteor和Angular/React的关系就像是花生酱沾果冻，绝配。反应式渲染只是构建一个完整的基于"<a href="http://info.meteor.com/blog/optimistic-ui-with-meteor-latency-compensation">Optimistic
+UI</a>&ldquo;的反应式应用的一小部分，Meteor提供了其他的部分让你能够构建一个完整的应用，从安全的服务端逻辑，到一个全栈的反应式数据系统，甚至到PhoneGap软件的构建支持。最重要的是，不像BaaS，Meteor可是开源的。</p>
+
+<p>所以Angular和React将会被Meteor原生支持，从而更好地支撑起Meteor库中的视图层。事实上，官方的Meteor教程已经有两个版本了，Blaze和Angular，React版的教程不久也会上线。如果想要了解更多这方面的信息，请稳步至<a href="http://angular-meteor.com/">Angular
+Meteor</a>的官方网站，或者参考以下两篇介绍React+Meteor的文章：<a href="http://react-in-meteor.readthedocs.org/en/latest/">Getting started with React in Meteor</a>和<a href="https://forums.meteor.com/t/preview-of-official-react-support/6150">Sashko的论坛帖子</a>。</p>
+
+<h3><a name="developer_experience"></a> 开发体验: 更快及更加灵活的构建流程</h3>
+
+<p>开发体验一直以来都是Meteor团队的重中之重，为此他们开发一整套的工具链，而Meteor 1.2则着重在使其构建工具链更加的快速和灵活。</p>
+
+<p>更快意味着能够支持更大和更加复杂的应用，以及能确保提供高级的JS构建任务（如ES2015和JSX）。为此，他们精心搭建了一个缓存系统，从而实现在有许多转录发生的情况下，能够计算出最小的构建步骤来更新应用。</p>
+
+<p>更加灵活则意味着为插件的开发者内建了更加深层和丰富的用于构建过程的钩子。这无疑为工具包的开发者拓展Metero提供了全新的机会，比如可以从Meteor代码的内部来对Bootstrap进行定制构建，或者只需要添加一个包就可以检查代码。这也解决了一个Meteor中一直存在的关于LESS的限制，之前的版本不得不以一种很尴尬的方式来绕过。</p>
+
+<h2><a name="road_ahead"></a> 1.2版本之后的开发路线</h2>
+
+<p>除了1.2版本以外，Meteor团队还希望在其他的领域能够完善Meteor，这些领域可以总结为以下几个方面：</p>
+
+<h3>集成</h3>
+
+<p><strong>SQL</strong>
+官方的SQL的支持将会吸引另外一大批开发者来使用Meteor。Meteor将会渐近式地支持SQL，先从SQL的“observeChanges”开始，然后逐步将它构建成Meteor全栈上的内建支持。</p>
+
+<p><strong>REST和微服务模式</strong>.
+Meteor团队将会研究如何能更好地处理那些来自于现成后端服务的数据，也行会通过核心功能的形式，或者connector包和模式指导的模式。</p>
+
+<h3>应用架构</h3>
+
+<p><strong>构建栈</strong> Meteor团队将会把一些社区要求的功能，如routing，并入核心库中，而且会采用更加果断的态度来建议如何构建大型的Meteor应用。当然，这些建议是可选的，主要是针对那些需要的开发团队。而对于哪个功能会并入核心库中，Meteor团队的方法是从Atmosphere以及Meteor开发者用户中选出那些最受欢迎的库，然后再对它们进行集成。同时，他们也会添加任何能使开发更加容易的功能。</p>
+
+<p><strong>ES15模块</strong>
+Meteor团队将会将自产的前ES15时代的命名系统替换成更加耀眼和现代的ES15模块。Meteor的计划是，会保留Rails风格的“do what I mean”，为那些需要的开发者自动做符号解析，与此同时如果偏爱另一种方式，也会允许使用严格的，显性的命名空间控制。</p>
+
+<p><strong>测试改善</strong> Meteor团队计划将Velocity并入核心库中，同时对它进行简化和流程化。</p>
+
+<p><strong>移动端推进</strong> 在移动端构建工具链的方向上有许多的可能性，包括新的技术，如React
+Native，到其他更加广泛的涉及跨平台构建及debug的工具集，。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[全Javascript的Web开发架构：MEAN和Yeoman【译】]]></title>
+    <link href="http://raohuaming.github.io/blog/2014/02/09/full-stack-javascript-with-mean-and-yeoman/"/>
+    <updated>2014-02-09T18:29:10+08:00</updated>
+    <id>http://raohuaming.github.io/blog/2014/02/09/full-stack-javascript-with-mean-and-yeoman</id>
+    <content type="html"><![CDATA[<h2>引言</h2>
+
+<p>最近在Angular社区的原型开发者间，一种全Javascript的开发架构MEAN正突然流行起来。其首字母分别代表的是：(M)ongoDB——noSQL的文档数据库，使用JSON风格来存储数据，甚至也是使用JS来进行sql查询；(E)xpress——基于Node的Web开发框架；(A)agular——JS的前端开发框架，提供了声明式的双向数据绑定；(N)ode——基于V8的运行时环境（JS语言开发），可以构建快速响应、可扩展的网络应用。</p>
+
+<p><img class="right" src="/images/mean-stack.png"></p>
+
+<p>MEAN的支持者宣称，如果整个开发栈均能使用JS，必然会大大地提高效率，这一点毋庸置疑是一个很大的卖点。这样一来，开发人员（无论是前端还是后端）不仅能使用一致的数据模型，在其它方面也同样可以获得一致的编程体验。</p>
+
+<p>例如，拿Mongo来说，你可以使用类JSON格式（BSON，二进制的JSON）来存储数据，然后在Express/Node中调用JSON查询语句，再将结果以JSON格式传给前端的Angular显示，这样，也自然使调试程序容易了很多。</p>
+
+<!--more-->
+
+
+<p><strong>注意: 事实上，在MEAN架构中，前端的Angular并不是必须的，你可以将它替换成其他的前端框架，如Backbone、Ember或者Polymer。</strong></p>
+
+<h2>为何选择MongoDB？</h2>
+
+<p>如上所提，这个架构最重要的优势在于能使用单一语言，这也是其选择了Mongo的首要原因。 这里就不讨论noSQL的是与非了。一些人对MEAN架构的指责在于，MongoDB可以很好地胜任中小型的应用，但是对于大规模应用（百万级用户）来说可能就捉襟见肘。我想说的是，这完全取决于你如何使用它。</p>
+
+<p>SQL数据库本身是强类型的，因此可以在很大程度上保证某种层次的一致，从而确保许多类型的脏数据一开始就没办法进入数据库。而NoSQL则是弱类型的数据库，这使得它在数据验证方面力不从心，而只能交给开发人员来实现，基于这样的特性，它尤其适合存储那些不规范的数据，特别是在原型开发阶段，此时数据模型正在经历快速变化。</p>
+
+<p>SQL和noSQL间的技术差别，归根结底是要在性能和稳定性间作出平衡。有些情况下，对数据的事务处理一旦设定后就不会轻易变化，那么此时使用Mongo就非常合适；然而有时候也会涉及更为复杂的事务处理，会牵扯到许多独立的业务逻辑，由于Mongo并没有提供一个简单的数据模型来支持一定级别的原子操作，因此SQL在这个时候可以派上用场。</p>
+
+<p>但无论如何，不论你是否选择MEAN中的M，你最终都需要根据自身的需求选择出合适的工具来做正确的事情，</p>
+
+<h2>为何是Express?</h2>
+
+<p>可以简单地把Express看成是一个在Node平台下搭建Web应用的工具集。在Node的基础上，它提供了许多简洁的接口来创建请求节点、处理cookie等，此外还提供了许多功能来帮助你搭建自己的服务器。总的来说，Express在以下几个方面有优势：</p>
+
+<ul>
+<li>设置REST路由简单致极：
+<code>javascript
+app.get(/account/:id, function(req, res){ /* req.params('id') is available */ });
+</code></li>
+<li>支持Jade或Mustache等模板引擎</li>
+<li>自动HTTP头处理:
+<code>javascript
+app.get('/', function(req,res){ res.json({object: 'foo'}); });
+</code></li>
+<li>支持Connect中间件，可以插入额外请求或响应处理，如用户验证</li>
+<li>提供辅助函数解析POST请求</li>
+<li>防范XSS</li>
+<li>优雅的错误处理</li>
+</ul>
+
+
+<h2>如何快速上手MEAN</h2>
+
+<p>如果想要很快上手MEAN，那么<a href="http://mean.io/">mean.io</a>是一个很不错的选择。该项目旨在解决MEAN架构中一些常见的集成问题, 目前维护得很好，文档也很清楚，而且可以很方便地自行添加第三方库，还能和Yeoman配合使用（通过 <a href="https://github.com/jrcryer/generator-mean">generator-mean</a> by James Cryer）。</p>
+
+<p>在进一步阅读前，先假定我们同意以下观点：（a）Mongo至少非常适合于全Javascript堆栈的原型设计；（b） 承认即使像Angular般如日中天，终有一天也会被其他的一些JS框架给取代，只要它们能帮助我们快速方便地将这个架构快速搭建起来。</p>
+
+<p>接下来就要介绍<a href="http://yeoman.io/">Yeoman</a> 了，它由3个你所熟知的工具构成：</p>
+
+<ul>
+<li>Grunt：用于生成，预览和自动化测试你的项目，这要特别感谢由Yeoman和grin t-contrib团队创建的许多grunt tasks。</li>
+<li>Bower：前端的依赖管理工具，有了它你再也不需要手动下载和管理第三方JS库了。</li>
+<li>YO：快速生成一个新的应用，包括配置好你的Grunt任务以及你极有可能会用到的Bower依赖。</li>
+</ul>
+
+
+<p>笔者在一年以前，曾和其他一些人创建过一个叫<a href="https://plus.google.com/+AddyOsmani/posts/YDNbxVxi4er">ExpressStack</a>的项目，其想法很简单，就是要提供一些工具能够快速生成构建全JS的Web应用所需要的一切。但是，这个项目夭折了，尽管如此，许多类似的项目却如雨后春笋般涌现出来。</p>
+
+<p>下面对这些项目作些介绍：</p>
+
+<p><strong>注意: 你可能需要装好Yeomam(npm install -g yo)和以下一些生成器（npm install -g <generator-name>）。</strong></p>
+
+<h3><a href="https://github.com/DaftMonk/generator-angular-fullstack">generator-angular-fullstack</a></h3>
+
+<p>这是一个AngularJS的生成器，集成了Express,可选MongoDB。主要功能如下：</p>
+
+<ul>
+<li>支持客户端和服务端的Livereload。</li>
+<li>Express server集成了grunt tasks。</li>
+<li>内建了方便的部署流程。</li>
+<li>支持Jade。</li>
+</ul>
+
+
+<p>可参考: <a href="http://tylerhenkel.com/creating-apps-with-angular-and-node-using-yeoman/">http://tylerhenkel.com/creating-apps-with-angular-and-node-using-yeoman/</a></p>
+
+<h3><a href="https://github.com/wlepinski/generator-meanstack">generator-meanstack</a></h3>
+
+<p>另一个MEAN架构的生成器，集成了grunt-express，功能如下：</p>
+
+<ul>
+<li>在generator-angular的基础上，用express取代了Connect。</li>
+<li>支持客户端和服务端的Livereload。</li>
+<li>使用app_grunt.js文件来启动应用，而在app.js中定义路由。</li>
+<li>目录结构基本沿袭了generator-angular的风格，只作了少许的改动。</li>
+</ul>
+
+
+<p>可参考：<a href="https://github.com/Grievoushead/generator-express-angular">https://github.com/Grievoushead/generator-express-angular</a></p>
+
+<h3><a href="https://github.com/jackrabbitsgroup/generator-mean-seed">generator-mean-seed</a></h3>
+
+<p>集成了Mongo，Express，Angular，Yeoman，Karma和Protractor（作自动测试）。</p>
+
+<h3><a href="https://github.com/klei-dev/generator-klei">generator-klei</a></h3>
+
+<p>和其他的很类似，不过使用的是Mongoose和Stylus，其他的一些功能包括：</p>
+
+<ul>
+<li>其目录结构非常容易扩张（包含了一个TODO List的应用例子）</li>
+<li>一个配置完整的Gruntfile，集合了livereload, linting, concatenation, minification等.</li>
+<li>使用exctrl来自动挂载API。</li>
+<li>使用了grunt-injector，从而无需手动修改Html的layout文件，就可以自动装载新添加的js和css。</li>
+<li>使用Karma, Mocha和Chai来进行前端的单元测试。</li>
+</ul>
+
+
+<h3><a href="https://github.com/pilwon/ultimate-seed-generator">ultimate-seed-generator</a></h3>
+
+<p>该生成器非常全面，添加了许多第三方的库，包括Passport用于用户登录，Browserify加载js。</p>
+
+<ul>
+<li>集成了AngularUI, Barbeque（用于任务队列管理）和Bootstrap</li>
+<li>集成了Bower, Browserify，Express和Font Awesome</li>
+<li>集成了Grunt, Handlebars, jQuery, JSHint和Karma/Mocha</li>
+<li>支持LESS/LESSHat, Livereload和Lodash/Underscore</li>
+<li>集成了Modernizr, MongoDB/Mongoose和Passport</li>
+</ul>
+
+
+<h2>该如何做出选择?</h2>
+
+<p>看了这么多的生成器，自然要问，我该选择哪一个呢？事实上，以上列表是有顺序的，依据的是其与最新版的Yeoman的兼容性以及维护的活跃度。</p>
+
+<h2>全Javascript的架构是否适合于产品级的应用呢？</h2>
+
+<p>不得不承认，如果开发堆栈的每一层都能使用JavaScript将会是一件很棒的事情（至少对于原型开发来说是这样），然而千万要注意，不要为了追求这一目标，而把自己而束缚住了。尽管的确有越来越多的大规模应用都在采用类似的架构，如Walmart、LinkedIn，但并不意味着模仿他们就一定能成功。</p>
+
+<p>另一个需要注意的是，相对于其他的语言（如Ruby，Python或Java），在Node上搭建后端要困难得多。你可能要自己处理内存泄漏，避免在事件循环中进行耗时运算，还要非常小心异常处理，如果这些处理不当就很有可能会导致整个应用服务器崩溃，但是这些问题在其他平台上却已经处理得很好了。然而，这并不是说，Node不能运用在生产环境下，当然可以，但要格外用心。</p>
+
+<p>实话实说，想要“一揽子”为Web应用提供一个大而全的解决方案将非常困难，MEAN架构也肯定有其局限性。在前端与后端的设计模式、原则和风格中有大量的演化，如果你觉得PHP或Rails是更明智的选择，那就继续使用下去，否则的话，不妨试试MEAN，至少在当下值得一试。</p>
+
+<p>【原文：<a href="http://addyosmani.com/blog/full-stack-javascript-with-mean-and-yeoman/">http://addyosmani.com/blog/full-stack-javascript-with-mean-and-yeoman/</a> 】</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[无后端（nobackend）：前端优先的Web开发【译】]]></title>

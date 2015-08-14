@@ -1,0 +1,257 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Meteor 1.2将拥抱ES6，AngularJS和React - Huaming Rao's Blog</title>
+	<meta name="author" content="Huaming Rao">
+
+	
+	<meta name="description" content="Meteor 1.2即将在今夏晚些时候发布，让我们先来一睹为快它有哪些新的特性： 通用Javascript: 采用ECMAScript 2015 (ES6) 反应式渲染: 优先支持Angular和React 开发体验: 更快及更加灵活的构建流程 此外，Meteor团队也公布了他们在1. &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Huaming Rao's Blog" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//code.jquery.com/jquery-1.7.2.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Huaming Rao's Blog</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:raohuaming.github.io">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		<a class="weibo" href="http://weibo.com/1729926244" title="Weibo">Weibo</a>
+		
+		
+		<a class="facebook" href="http://www.facebook.com/huaming.rao" title="Facebook">Facebook</a>
+		
+		
+		
+		<a class="twitter" href="http://twitter.com/raohuaming" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/raohuaming" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		<a class="linkedin" href="http://www.linkedin.com/in/huamingrao">LinkedIn</a>
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:raohuaming.github.io">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Meteor 1.2将拥抱ES6，AngularJS和React</h2>
+	<div class="entry-content"><p>Meteor 1.2即将在今夏晚些时候发布，让我们先来一睹为快它有哪些新的特性：</p>
+
+<ul>
+<li><a href="#universal_javascript"> 通用Javascript: 采用ECMAScript 2015 (ES6) </a></li>
+<li><a href="#reactive_rendering"> 反应式渲染: 优先支持Angular和React </a></li>
+<li><a href="#developer_experience"> 开发体验: 更快及更加灵活的构建流程 </a></li>
+</ul>
+
+
+<p>此外，Meteor团队也公布了他们在<a href="#road_ahead">1.2版本之后的开发路线</a>。</p>
+
+<p>具体信息请参考官方Blog文章，<a href="http://info.meteor.com/blog/whats-coming-in-meteor-12-and-beyond">戳这里</a>。</p>
+
+<!--more-->
+
+
+<h2>Meteor 1.2的更新将集中在以下几个方面</h2>
+
+<h3><a name="universal_javascript"></a> 通用Javascript: 采用ECMAScript 2015 (ES6)</h3>
+
+<p><a href="http://www.ecma-international.org/ecma-262/6.0/index.html">ECMAScript2015</a>，也称ES6，是Javascript社区最为最要的一个里程碑。这个版本可以称得上是"有史以来最好的Javascript"了，添加了类，块作用域等许多新特性。通过引入这些特性，解决了许多JS被大家所诟病的地方，必将吸引更多的开发者加入JS这个社区。Meteor团队认为，所有用JS写应用的开发者都应该使用ES2015，因此他们决定将ES2015作为Meteor平台的官方JS版本。他们的目的是要让Meteor成为使用ES2015最好的方式，同时为所有的平台，无论客户端还是服务器端，提供无缝的ES2015体验。Meteor1.2将是实现这种无缝开发体验的第一步：这个版本将添加对ES2015所有特性的支持（除了模块），能够自动通过<a href="https://babeljs.io/">Babel</a>转录JS文件，从而使这个版本能够运行在所有Meteor所支持的设备和浏览器上，除此之外，他们还将所有的例子和文档都改写成了ES2015的语法。</p>
+
+<p>既然可以如此简单的支持ES2015，Meteor团队希望在新的版本中，所有开发者都能够尽早开始使用ES2015（最好今天就开始）。这是Javascript的一次巨大飞跃。但是如果大家还没有准备好切换到ES2015，或者希望能逐步迁移现有的代码，不用着急，在Meteor1.2中，你同样可以选择这样做。你可以将一部分代码写成ES2015，而另一部分保持原来的语法，然后再以你自己的步伐慢慢进行调整。</p>
+
+<h3><a name="reactive_rendering"></a> 反应式渲染: 优先支持Angular和React</h3>
+
+<p>开发者都希望自己的应用是反应式（reactive）和响应式（responsive）的，所以难怪大家对于反应式渲染框架（如Angular和React等）的崛起表现得如此兴奋。好消息是，在Meteor1.2中，将保证无论是使用Blaze，React还是Angular，都会有一个非常棒的开发体验。</p>
+
+<p>Meteor和Angular/React的关系就像是花生酱沾果冻，绝配。反应式渲染只是构建一个完整的基于"<a href="http://info.meteor.com/blog/optimistic-ui-with-meteor-latency-compensation">Optimistic
+UI</a>&ldquo;的反应式应用的一小部分，Meteor提供了其他的部分让你能够构建一个完整的应用，从安全的服务端逻辑，到一个全栈的反应式数据系统，甚至到PhoneGap软件的构建支持。最重要的是，不像BaaS，Meteor可是开源的。</p>
+
+<p>所以Angular和React将会被Meteor原生支持，从而更好地支撑起Meteor库中的视图层。事实上，官方的Meteor教程已经有两个版本了，Blaze和Angular，React版的教程不久也会上线。如果想要了解更多这方面的信息，请稳步至<a href="http://angular-meteor.com/">Angular
+Meteor</a>的官方网站，或者参考以下两篇介绍React+Meteor的文章：<a href="http://react-in-meteor.readthedocs.org/en/latest/">Getting started with React in Meteor</a>和<a href="https://forums.meteor.com/t/preview-of-official-react-support/6150">Sashko的论坛帖子</a>。</p>
+
+<h3><a name="developer_experience"></a> 开发体验: 更快及更加灵活的构建流程</h3>
+
+<p>开发体验一直以来都是Meteor团队的重中之重，为此他们开发一整套的工具链，而Meteor 1.2则着重在使其构建工具链更加的快速和灵活。</p>
+
+<p>更快意味着能够支持更大和更加复杂的应用，以及能确保提供高级的JS构建任务（如ES2015和JSX）。为此，他们精心搭建了一个缓存系统，从而实现在有许多转录发生的情况下，能够计算出最小的构建步骤来更新应用。</p>
+
+<p>更加灵活则意味着为插件的开发者内建了更加深层和丰富的用于构建过程的钩子。这无疑为工具包的开发者拓展Metero提供了全新的机会，比如可以从Meteor代码的内部来对Bootstrap进行定制构建，或者只需要添加一个包就可以检查代码。这也解决了一个Meteor中一直存在的关于LESS的限制，之前的版本不得不以一种很尴尬的方式来绕过。</p>
+
+<h2><a name="road_ahead"></a> 1.2版本之后的开发路线</h2>
+
+<p>除了1.2版本以外，Meteor团队还希望在其他的领域能够完善Meteor，这些领域可以总结为以下几个方面：</p>
+
+<h3>集成</h3>
+
+<p><strong>SQL</strong>
+官方的SQL的支持将会吸引另外一大批开发者来使用Meteor。Meteor将会渐近式地支持SQL，先从SQL的“observeChanges”开始，然后逐步将它构建成Meteor全栈上的内建支持。</p>
+
+<p><strong>REST和微服务模式</strong>.
+Meteor团队将会研究如何能更好地处理那些来自于现成后端服务的数据，也行会通过核心功能的形式，或者connector包和模式指导的模式。</p>
+
+<h3>应用架构</h3>
+
+<p><strong>构建栈</strong> Meteor团队将会把一些社区要求的功能，如routing，并入核心库中，而且会采用更加果断的态度来建议如何构建大型的Meteor应用。当然，这些建议是可选的，主要是针对那些需要的开发团队。而对于哪个功能会并入核心库中，Meteor团队的方法是从Atmosphere以及Meteor开发者用户中选出那些最受欢迎的库，然后再对它们进行集成。同时，他们也会添加任何能使开发更加容易的功能。</p>
+
+<p><strong>ES15模块</strong>
+Meteor团队将会将自产的前ES15时代的命名系统替换成更加耀眼和现代的ES15模块。Meteor的计划是，会保留Rails风格的“do what I mean”，为那些需要的开发者自动做符号解析，与此同时如果偏爱另一种方式，也会允许使用严格的，显性的命名空间控制。</p>
+
+<p><strong>测试改善</strong> Meteor团队计划将Velocity并入核心库中，同时对它进行简化和流程化。</p>
+
+<p><strong>移动端推进</strong> 在移动端构建工具链的方向上有许多的可能性，包括新的技术，如React
+Native，到其他更加广泛的涉及跨平台构建及debug的工具集，。</p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+Aug 10th, 2015</div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/develop/'>develop</a>, <a class='category' href='/blog/categories/translation/'>translation</a>
+
+
+</div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+		
+		
+		<a class="addthis_button_tweet"></a>
+		
+		
+		<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+		
+		
+	</div>
+	
+  
+  <script type="text/javascript">
+  var jiathis_config = {data_track_clickback:'true'};
+  </script>
+  <script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;btn=r2.gif&amp;uid=2015717" charset="utf-8"></script>
+  
+</div>
+
+
+
+
+<section id="comment">
+    <h2 class="title">评论</h2>
+    <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2015717"></script>
+<!-- UY END -->
+
+</section>
+
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2015
+
+    Huaming Rao
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'huaming-gh-pages';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://raohuaming.github.io/blog/2015/08/10/meteor-1-dot-2/';
+        var disqus_url = 'http://raohuaming.github.io/blog/2015/08/10/meteor-1-dot-2/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//go.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-38951229-3']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+</body>
+</html>
